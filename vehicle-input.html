@@ -1,0 +1,422 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<base href="<%=basePath%>">
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+	<meta name="renderer" content="webkit">
+	<!-- Bootstrap -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="bootstrap/js/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<link href="css/vehicle_manger.css" rel="stylesheet" />
+	<title>车辆管理</title>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-default navbar visible-lg-*" style=" ">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">博车业务管理</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav  col-md-offset-1" id="nav">
+
+					<li ><a href="#">首页</a></li>
+					<li class="active"><a href="#">车辆管理</a></li>
+					<li><a href="#">过户管理</a></li>
+					<li><a href="#">财务管理</a></li>
+					<li><a href="#">审核中心</a></li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">余昱-昆明分公司-业务部</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">2</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	<div class="title" >
+		<h4 class="col-md-1">车辆管理</h4>
+		<button type="button" class="btn btn-primary add-car" >添加二手车</button>
+		<p class="navbar-text title-right">共0条记录</p>
+	</div>
+	<div>
+		<!-- Nav tabs -->
+		<ul class="nav  nav-stacked  tab-border  role=" tablist" id="tab">
+			<li role="presentation" ><a href="#home" aria-controls="home" role="tab" data-toggle="tab">车辆询价</a></li>
+			<li role="presentation" class="active1"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">车辆信息录入</a></li>
+			<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">拍后车辆处理</a></li>
+			<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">手续出入库</a></li>
+		</ul>
+		<!-- Tab panes -->
+		<div class="tab-content ">
+	
+			<div role="tabpanel" class="tab-pane  " id="home">
+				
+			</div>
+			<!--车辆信息录入-->
+			<div role="tabpanel" class="tab-pane active" id="profile">
+				<div class="vehicle-query-mod ">
+					<div class="use-float">
+						<div><label>车辆编号</label></div>
+						<div><input type="text"></div>
+					</div>
+					<div class="use-float">
+						<div><label>委托方机构</label></div>
+						<div><input type="text"></div>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">车损原因</label>
+						<select class="rightbox">
+							<option>请选择</option>
+							<option>碰撞</option>
+							<option>水淹</option>
+							<option>火烧</option>
+							<option>拆解</option>
+							<option>盗抢</option>
+							<option>二手</option>
+							<option>新车</option>
+							<option>其它</option>
+						</select>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">拍卖会期次</label>
+						<select class="rightbox">
+							<option></option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">车辆品牌</label>
+						<select class="rightbox">
+							<option>请选择</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">暂缓上拍</label>
+						<select class="rightbox">
+							<option>请选择</option>
+							<option>暂缓上拍</option>
+							<option>非暂缓上拍</option>
+							
+						</select>
+					</div>
+				</div>
+				<div class="vehicle-query-mod ">
+					<div class="use-float">
+						<div><label>博车网询价编号</label></div>
+						<div><input type="text"></div>
+					</div>
+					<div class="use-float">
+						<div><label>分公司</label></div>
+						<div><input type="text"></div>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">车辆状态</label>
+						<select class="rightbox">
+							<option>全部</option>
+							<option>车辆信息录入</option>
+							<option>信息待审核</option>
+							<option>信息审核未通过</option>
+							<option>信息审核通过</option>
+							<option>进入拍卖</option>
+							<option>成交</option>
+							<option>流拍</option>
+							<option>已退车</option>
+							<option>已付款</option>
+							<option>已签过户协议</option>
+							<option>已过户</option>
+						</select>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">车辆种类</label>
+						<select class="rightbox">
+							<option>全部</option>
+							<option>事故</option>
+							<option>成车</option>
+							<option>不可修复事故车</option>
+						
+						</select>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">拍卖平台</label>
+						<select class="rightbox">
+							<option>请选择</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<button class="btn btn-default" type="submit">查询</button>
+					<button class="btn btn-default" type="submit">清空</button>
+
+
+				</div>
+				<div class="vehicle-query-mod ">
+					<div class="use-float">
+						<div><label>车牌号码</label></div>
+						<div><input type="text"></div>
+					</div>
+					<div class="use-float">
+						<div><label>分中心</label></div>
+						<div><input type="text"></div>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">委托状态</label>
+						<select class="rightbox">
+							<option>全部</option>
+							<option>待委托</option>
+							<option>同意委托</option>
+							<option>不同意委托</option>
+						
+						</select>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">车辆暂存地（省）</label>
+						<select class="rightbox">
+							<option>请选择</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">是否发生二次事故</label>
+						<select class="rightbox">
+							<option>请选择</option>
+							<option>是</option>
+							<option>否</option>
+							<option>不详</option>
+						
+						</select>
+					</div>
+				</div>
+				<div class="vehicle-query-mod">
+					<div class="use-float">
+						<div><label>识别号</label></div>
+						<div><input type="text"></div>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">车辆所属大区</label>
+						<select class="rightbox">
+							<option>请选择</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">价格状态</label>
+						<select class="rightbox">
+							<option>全部</option>
+							<option>未设</option>
+							<option>价格待审核</option>
+							<option>价格已审定</option>
+							<option>价格审核未通过</option>
+						</select>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">车辆暂存地（市）</label>
+						<select class="rightbox">
+							<option>请选择</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">打包兜底</label>
+						<select class="rightbox">
+							<option>请选择</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+				</div>
+				<div class="vehicle-query-mod ">
+
+					<div class="use-float">
+						<div><label>业务员姓名</label></div>
+						<div><input type="text"></div>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">车辆所属分公司</label>
+						<select class="rightbox">
+							<option>请选择</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">库存状态</label>
+						<select class="rightbox">
+							<option>全部</option>
+							<option>未出库</option>
+							<option>在库</option>
+							<option>已出库</option>
+					
+						</select>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">车牌所在地</label>
+						<select class="rightbox">
+							<option>请选择</option>
+							<option>川</option>
+							<option>鄂</option>
+							<option>甘</option>
+							<option>赣</option>
+							<option>贵</option>
+							<option>桂</option>
+							<option>黑</option>
+							<option>沪</option>
+							<option>吉</option>
+							<option>冀</option>
+							<option>津</option>
+							<option>晋</option>
+							<option>京</option>
+							<option>辽</option>
+							<option>鲁</option>
+							<option>蒙</option>
+							<option>闽</option>
+							<option>宁</option>
+							<option>青</option>
+							<option>琼</option>
+							<option>苏</option>
+							<option>皖</option>
+							<option>湘</option>
+							<option>新</option>
+							<option>陕</option>
+							<option>渝</option>
+							<option>豫</option>
+							<option>粤</option>
+							<option>云</option>
+							<option>皖</option>
+							<option>湘</option>
+							<option>新</option>
+							<option>藏</option>
+							<option>浙</option>
+						</select>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">打包结算拖车费</label>
+						<select class="rightbox">
+							<option>请选择</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+				</div>
+				<table class="table table-bordered vehicle-query-table">
+					<thead>
+						<tr>
+							<th>
+								<input type="checkbox">
+							</th>
+							<th>图片</th>
+							<th>车辆编号</th>
+							<th>车辆所属分公司</th>
+							<th>车牌号码</th>
+							<th>车辆状态</th>
+							<th>选择系列</th>
+							<th>委托方机构</th>
+							<th>分公司</th>
+							<th>分中心</th>
+							<th>委托状态</th>
+							<th>价格状态</th>
+							<th>库存状态</th>
+							<th>拍卖类型</th>
+							<th>预计拍卖日期</th>
+							<th>拆解费</th>
+							<th>拖车费</th>
+							<th>综合服务费</th>
+							<th>车辆识别号</th>
+							<th>发动机号</th>
+							<th>业务员姓名</th>
+							<th>车辆暂存地</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<input type="checkbox">
+							</td>
+							<td>图片</td>
+							<td>车辆编号</td>
+							<td>车辆所属分公司</td>
+							<td>车牌号码</td>
+							<td>车辆状态</td>
+							<td>选择系列</td>
+							<td>委托方机构</td>
+							<td>分公司</td>
+							<td>分中心</td>
+							<td>委托状态</td>
+							<td>价格状态</td>
+							<td>库存状态</td>
+							<td>拍卖类型</td>
+							<td>预计拍卖日期</td>
+							<td>拆解费</td>
+							<td>拖车费</td>
+							<td>综合服务费</td>
+							<td>车辆识别号</td>
+							<td>发动机号</td>
+							<td>业务员姓名</td>
+							<td>车辆暂存地</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!--车辆信息录入end-->
+			<div role="tabpanel" class="tab-pane" id="messages"></div>
+			<div role="tabpanel" class="tab-pane" id="settings"></div>
+		</div>
+	</div>
+	<!--切换菜单效果-->
+	<script>
+		$(document).ready(function () {
+			$("ul#nav li").click(function () {
+				$(this).addClass("active").siblings().removeClass("active");
+			})
+		})
+	</script>
+	<script>
+		$(document).ready(function () {
+			$("ul#tab li").click(function () {
+				$(this).addClass("active1").siblings().removeClass("active1");
+			})			
+		})
+	</script>
+	<!--切换菜单效果end-->
+</body>
+
+</html>

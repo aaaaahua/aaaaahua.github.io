@@ -1,0 +1,77 @@
+/* CSS Document */
+.nav a {
+	color:#FFFFFF;
+}
+.titleBox{
+	background-color:#FFFFFF;
+	height:56px;
+}
+.titleBox_2{
+	background-color:#FFFFFF;
+	height:120px;
+}
+	.titleBox_2 img{
+	float:left;
+	margin-top:10px;
+	}
+.title_1{
+	color:rgb(132,175,192);
+	margin:0;
+	padding-left:40px;
+	padding-top:14px;
+}
+.title_2{
+	color:rgb(202,202,202);
+	margin:0;
+	font-size:40px;
+	padding-top:36px;
+}
+.tab-border_1{
+	border-right:1px solid rgb(144,144,144);
+	text-align:right;
+	width:14%;
+	float: left;
+	height: 500px;
+}
+.tab-content {
+	float: left;
+	margin: 10px 10px;
+	width: 78%;
+}
+.active2{	
+	color:#000000;
+	font-size:18px;
+	background-color: rgb(54,174,201);
+	border-right:none;
+	
+}
+.tab-border_1 li{
+	margin-left:20px;
+	margin-top:13px;
+	height:40px;
+	line-height:20px;
+}
+.tab-content_1{
+	float: left;
+	margin: 10px 10px;
+	width: 78%;
+}
+.pending{
+	width:1000px;
+	height:480px;
+	padding-left:35px;
+	padding-top:3px;
+}
+	.pending ul{
+		border:1px solid blue;
+	}
+	.pending ul li{
+		border:1px solid green;
+	} 
+.tip{
+	font-size:18px;
+	color:rgb(153,169,173);
+}	
+	
+	
+	

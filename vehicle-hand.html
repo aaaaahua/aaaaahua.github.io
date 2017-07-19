@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<base href="<%=basePath%>">
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+	<meta name="renderer" content="webkit">
+	<!-- Bootstrap -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="bootstrap/js/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<link href="css/vehicle_manger.css" rel="stylesheet" />
+	<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+	<script src="js/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+	<title>车辆管理</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-default navbar">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">博车业务管理</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav  col-md-offset-1" id="nav">
+
+					<li><a href="#">首页</a></li>
+					<li class="active"><a href="#">车辆管理</a></li>
+					<li><a href="#">过户管理</a></li>
+					<li><a href="#">财务管理</a></li>
+					<li><a href="#">审核中心</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">余昱-昆明分公司-业务部</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">2</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	<div class="title">
+		<h4 class="col-md-1">车辆管理</h4>
+		<button type="button" class="btn confirm-print">成交确认书打印</button>
+		<button type="button" class="btn confirm-print">借款单打印</button>
+		<button type="button" class="btn confirm-print">提车单打印</button>
+		<p class="navbar-text title-right">共0条记录</p>
+	</div>
+	<div>
+		<!-- Nav tabs -->
+		<ul class="nav  nav-stacked  tab-border  role=" tablist" id="tab">
+			<li role="presentation"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">车辆询价</a></li>
+			<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">车辆信息录入</a></li>
+			<li role="presentation" class="active1"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">拍后车辆处理</a></li>
+			<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">手续出入库</a></li>
+		</ul>
+		<!-- Tab panes -->
+		<div class="tab-content ">
+
+			<div role="tabpanel" class="tab-pane  " id="home">
+			</div>
+			<div role="tabpanel" class="tab-pane " id="profile">
+			</div>
+
+			<div role="tabpanel" class="tab-pane active" id="messages">
+				<!--拍后车辆处理-->
+				<div class="vehicle-query-mod ">
+					<div class="vehicle-query">
+						<label class="leftbox">拍卖会期次</label>
+						<select class="rightbox">
+							<option>全部</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">博车网分公司</label>
+						<select class="rightbox">
+							<option></option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">提车状态</label>
+						<select class="rightbox">
+							<option>全部</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+				</div>
+				<div class="vehicle-query-mod ">
+					<div class="use-float">
+						<div><label>委托方</label></div>
+						<div><input type="text"></div>
+					</div>
+					<div class="use-float">
+						<div><label>会员姓名</label></div>
+						<div><input type="text"></div>
+					</div>
+					<div class="use-float">
+						<div><label>车主姓名</label></div>
+						<div><input type="text"></div>
+					</div>
+				</div>
+				<div class="vehicle-query-mod ">
+					<div class="use-float">
+						<div><label>车辆编号</label></div>
+						<div><input type="text"></div>
+					</div>
+					<div class="use-float">
+						<div><label>会员电话</label></div>
+						<div><input type="text"></div>
+					</div>
+					<div class="use-float">
+						<div><label>车主电话</label></div>
+						<div><input type="text"></div>
+					</div>
+				</div>
+				<div class="vehicle-query-mod">
+					<div class="use-float">
+						<div><label>车牌号</label></div>
+						<div><input type="text"></div>
+					</div>
+					<div class="use-float">
+						<div><label>拍卖ID</label></div>
+						<div><input type="text"></div>
+					</div>
+					<div class="vehicle-query">
+						<label>过户截止时间&nbsp;</label>
+						<input size="10" type="text" readonly class="form_date" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+						<label>&nbsp;&nbsp;到&nbsp;&nbsp;</label>
+						<input size="10" type="text" readonly class="form_date" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+					</div>
+				</div>
+				<div class="vehicle-query-mod ">
+					<div class="vehicle-query">
+						<label class="leftbox">车辆所属大区</label>
+						<select class="rightbox">
+							<option>请选择</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<div class="vehicle-query">
+						<label class="leftbox">车款状态</label>
+						<select class="rightbox">
+							<option>全部</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<button class="btn btn-default" type="submit">查询</button>
+					<button class="btn btn-default" type="submit">清空</button>
+				</div>
+				<table class="table table-bordered vehicle-query-table">
+					<thead>
+						<tr>
+							<th>
+							</th>
+							<th>拍卖会编号</th>
+							<th>委托方</th>
+							<th>车辆编号</th>
+							<th>车牌号</th>
+							<th>车型</th>
+							<th>博车网分公司</th>
+							<th>成交价</th>
+							<th>会员姓名</th>
+							<th>会员电话</th>
+							<th>车主姓名</th>
+							<th>车主电话</th>
+							<th>过户截止时间</th>
+							<th>车款状态</th>
+							<th>提车状态</th>
+							<th>过户状态</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="checkbox">
+							</td>
+							<td>拍卖会编号</td>
+							<td>委托方</td>
+							<td>车辆编号</td>
+							<td>车牌号</td>
+							<td>车型</td>
+							<td>博车网分公司</td>
+							<td>成交价</td>
+							<td>会员姓名</td>
+							<td>会员电话</td>
+							<td>车主姓名</td>
+							<td>车主电话</td>
+							<td>过户截止时间</td>
+							<td>车款状态</td>
+							<td>提车状态</td>
+							<td>过户状态</td>
+						</tr>
+					</tbody>
+				</table>
+				<!--拍后车辆处理end-->
+			</div>
+		
+			<div role="tabpanel" class="tab-pane" id="settings">
+	
+			</div>
+		</div>
+	</div>
+	<!--切换菜单效果-->
+	<script>
+		$(document).ready(function () {
+			$("ul#nav li").click(function () {
+				$(this).addClass("active").siblings().removeClass("active");
+			})
+		})
+	</script>
+	<script>
+		$(document).ready(function () {
+			$("ul#tab li").click(function () {
+				$(this).addClass("active1").siblings().removeClass("active1");
+			})
+		})
+	</script>
+	<!--切换菜单效果end-->
+	<script type="text/javascript">
+
+		$('.form_date').datetimepicker({
+			language: 'zh-CN',
+			weekStart: 1,
+			todayBtn: 1,
+			autoclose: 1,
+			todayHighlight: 1,
+			startView: 2,
+			minView: 2,
+			forceParse: 0,
+			format: 'yyyy-mm-dd',
+			pickerPosition:'bottom-left'
+		});
+
+	</script>
+</body>
+
+</html>

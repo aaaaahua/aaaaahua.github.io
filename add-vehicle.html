@@ -1,0 +1,890 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<base href="<%=basePath%>">
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+	<meta name="renderer" content="webkit">
+	<!-- Bootstrap -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="bootstrap/js/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<link href="css/vehicle_manger.css" rel="stylesheet" />
+	<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+	<script src="js/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+	<title>信息维护</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-default navbar">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">博车业务管理</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav  col-md-offset-1" id="nav">
+					<li><a href="#">首页</a></li>
+					<li class="active"><a href="#">车辆管理</a></li>
+					<li><a href="#">过户管理</a></li>
+					<li><a href="#">财务管理</a></li>
+					<li><a href="#">审核中心</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">余昱-昆明分公司-业务部</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">2</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	<div class="title">
+		<h4 class="col-md-1">信息维护</h4>
+		<button type="button" class="btn btn-primary add-car">提交</button>
+		<button type="button" class="btn btn-primary add-car">保存</button>
+		<button type="button" class="btn btn-primary add-car">保存返回</button>
+		<button type="button" class="btn btn-primary add-car">返回</button>
+		<p class="navbar-text title-right">共0条</p>
+	</div>
+	<div class="col-md-10 col-md-offset-1" style="margin-top:2%">
+		<table class="table table-bordered ">
+			<tbody>
+				<!--基本信息-->
+				<!-- 第1行 -->
+				<tr>
+					<td colspan=" 11" class="add-title">
+						<div class="col-md-1"><strong>基本信息</strong></div>
+						<div class="col-md-2 col-md-offset-2">审核人:456</div>
+						<div class="col-md-2">车辆状态:车辆信息录入</div>
+						<div class="col-md-2">委托状态:</div>
+						<div class="col-md-3">信息首次录入时间:2016-10-13 21:48</div>
+					</td>
+				</tr>
+				<!-- 1 -->
+				<!-- 2 -->
+				<tr>
+					<td class="add-bgcolor">车牌号码</td>
+					<td colspan="5" >
+						<div style="display:inline-block;white-space:nowrap">
+						<input type="text">
+						<label class="checkbox-inline">
+							<input type="checkbox" id="inlineCheckbox1" value="">&emsp;&emsp;&emsp;&emsp; 新车无牌
+						</label>
+						</div>
+					</td>
+					<td colspan=" 1" class="add-bgcolor">
+						车辆所在地
+						<select><option>请选择</option><option>5</option></select>
+					</td>
+					<td class="add-bgcolor">车辆种类</td>
+					<td colspan=" 3">
+						<select><option>成车</option><option>5</option></select>
+					</td>
+				</tr>
+				<!-- 2 -->
+				<!-- 3-->
+				<tr>
+					<td class="add-bgcolor">车辆编号(自动生成)</td>
+					<td colspan="2"><input type="text" value="11853"></td>
+					<td class="add-bgcolor">车辆所属分公司</td>
+					<td colspan="2">
+						<select class="table-select"><option></option><option></option></select>
+					</td>
+					<td class="add-bgcolor">车辆所属分公司</td>
+					<td class="add-bgcolor">
+						业务员姓名
+					</td>
+					<td colspan=" 2">
+						<select class="table-select"><option></option><option></option></select>
+					</td>
+				</tr>
+				<!-- 3 -->
+				<!-- 4 -->
+				<tr>
+					<td class="add-bgcolor">委托方机构</td>
+					<td colspan="2">
+						<select><option>请选择</option><option></option></select>
+					</td>
+					<td class="add-bgcolor">分公司</td>
+					<td colspan="2">
+						<select><option>请选择</option><option></option></select>
+					</td>
+					<td class="add-bgcolor"><span>*</span>分中心</td>
+					<td colspan=" 2">
+						<select><option>请选择</option><option></option></select>
+					</td>
+				</tr>
+				<!-- 4 -->
+				<!-- 5 -->
+				<tr>
+					<td class="add-bgcolor"><span>*</span>保险公司报案号</td>
+					<td colspan="4"><input type="text"></td>
+					<td colspan=" 1" class="add-bgcolor">
+						<span>*</span>定损员姓名
+					</td>
+					<td><input type="text"></td>
+					<td class="add-bgcolor"><span>*</span>定损员电话</td>
+					<td>
+						<input type="text">
+					</td>
+				</tr>
+				<!-- 5 -->
+				<!-- 6 -->
+				<tr>
+					<td class="add-bgcolor">暂缓上拍原因</td>
+					<td colspan="10"><input type="text"></td>
+				</tr>
+				<!-- 6 -->
+				<tr>
+					<td colspan="10">&nbsp;</td>
+				</tr>
+				<!--基本信息end-->
+				<!--公车拍卖相关信息-->
+				<tr>
+					<td class="add-title" colspan="10"><strong>公车拍卖相关信息</strong></td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor" colspan=" 2">车辆目录号</td>
+					<td><input type="text" colspan=" 3"></td>
+					<td class="add-bgcolor" colspan=" 2">拍卖平台</td>
+					<td colspan=" 4">
+						<select><option>请选择</option><option></option></select>
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">车辆来源单位</td>
+					<td colspan="10"><input type="text"></td>
+				</tr>
+				<!--公车拍卖相关信息end-->
+				<!--车辆登记信息-->
+				<tr>
+					<td class="add-title" colspan="10"><strong>车辆登记信息</strong></td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">车辆品牌</td>
+					<td colspan="2">
+						<select class="table-select"><option></option><option></option></select>
+					</td>
+					<td class="add-bgcolor">选择主系列</td>
+					<td colspan="2">
+						<select class="table-select"><option></option><option></option></select>
+					</td>
+					<td class="add-bgcolor">选择副系列</td>
+					<td colspan=" 2">
+						<select class="table-select"><option></option><option></option></select>
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">车身颜色</td>
+					<td colspan="2">
+						<input type="text">
+					</td>
+					<td class="add-bgcolor">车辆识别号</td>
+					<td colspan="2">
+						<input type="text">
+					</td>
+					<td class="add-bgcolor">进口/国产</td>
+					<td colspan=" 2">
+						<label class="radio-inline">
+							<input type="radio">&emsp;&emsp;  进口
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;国产
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">发动机号</td>
+					<td colspan="2">
+						<input type="text">
+					</td>
+					<td class="add-bgcolor">发动机是否与手续一致</td>
+					<td colspan="2">
+						<select><option>请选择</option><option></option></select>
+					</td>
+					<td class="add-bgcolor">燃料类型</td>
+					<td colspan=" 2">
+						<select><option>请选择</option><option></option></select>
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">排量(L)</td>
+					<td colspan="2">
+						<input type="text">
+					</td>
+					<td class="add-bgcolor">出厂日期(YYYY-MM-DD)</td>
+					<td colspan="2">
+						<div class="input-group date form_date " data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+							<input type="text" value="" readonly>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+						</div>
+					</td>
+					<td class="add-bgcolor">登记日期(YYYY-MM-DD)</td>
+					<td colspan=" 2">
+						<div class="input-group date form_date " data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+							<input type="text" value="" readonly>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+						</div>
+					</td>
+				</tr>
+				<!--车辆登记信息end-->
+				<tr>
+					<td colspan="10">&nbsp;</td>
+				</tr>
+				<!--行驶本信息-->
+				<tr>
+					<td class="add-title" colspan="10"><strong>行驶本信息</strong></td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">车辆型号</td>
+					<td colspan="2">
+						<input type="text" value="">
+					</td>
+					<td class="add-bgcolor">车辆类型</td>
+					<td colspan="6">
+						<select><option>请选择</option><option></option></select>
+						<select><option>请选择</option><option></option></select>
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">车辆注册地</td>
+					<td colspan="4">
+						<select><option>请选择</option><option></option></select>
+						<select><option>请选择</option><option></option></select>
+					</td>
+					<td class="add-bgcolor">使用性质</td>
+					<td colspan="1">
+						<select><option>请选择</option><option></option></select>
+					</td>
+					<td class="add-bgcolor">载客人数</td>
+					<td colspan="2">
+						<input type="text">
+					</td>
+				</tr>
+				<!--行驶本信息end-->
+				<tr>
+					<td colspan="10">&nbsp;</td>
+				</tr>
+				<!--发票信息-->
+				<tr>
+					<td class="add-title" colspan="10"><strong>发票信息</strong></td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">是否二手车</td>
+					<td colspan="2">
+						<select ><option>请选择</option><option></option></select>
+					</td>
+					<td class="add-bgcolor"><span>*</span>开票日期(YYYY-MM-DD)</td>
+					<td colspan=" 2">
+						<div class="input-group date form_date " data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+							<input type="text" value="" readonly>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+						</div>
+                 <td class="add-bgcolor"><span>*</span>有无工商认证</td>
+					<td colspan=" 2">
+						<label class="radio-inline">
+							<input type="radio">&emsp; 有
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp; 无
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor"><span>*</span>购置价</td>
+					<td colspan="10"><input type="text"></td>
+				</tr>
+				<!--发票信息end-->
+				<tr>
+					<td colspan="10">&nbsp;</td>
+				</tr>
+				<!--抢险保单信息-->
+				<tr>
+					<td class="add-title" colspan="10"><strong>强险保单信息</strong></td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor"><span>*</span>交强险截止(YYYY-MM-DD)</td>
+					<td colspan="4">
+						<div class="input-group date form_date " data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+							<input type="text" value="" readonly>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+						</div>
+					</td>
+					<td class="add-bgcolor"><span>*</span>车船税日期(YYYY)</td>
+					<td colspan=" 4">
+						<div class="input-group date form_date " data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+							<input type="text" value="" readonly>
+							<span class="input-group-addon"  ><span class="glyphicon glyphicon-calendar" ></span></span>
+						</div>
+					</td>
+				</tr>
+				<!--抢险保单信息end-->
+				<tr>
+					<td colspan="10">&nbsp;</td>
+				</tr>
+				<!--其他-->
+				<tr>
+					<td class="add-title" colspan="10"><strong>其他</strong></td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">车辆暂存地</td>
+					<td colspan="5">
+						<select><option>请选择</option><option></option></select>
+						<select><option>请选择</option><option></option></select>
+					</td>
+					<td class="add-bgcolor">库存状态</td>
+					<td colspan="2">
+						<select><option>请选择</option><option></option></select>
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor"><span>*</span>表显里程(公里)</td>
+					<td colspan="10"><input type="text"></td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">车损原因</td>
+					<td colspan="5">
+						<label class="checkbox-inline">
+							<input type="checkbox" id="inlineCheckbox1" value="option1">&emsp; 盗抢
+						</label>
+						<label class="checkbox-inline">
+							<input type="checkbox" id="inlineCheckbox2" value="option2">&emsp; 二手
+						</label>
+						<label class="checkbox-inline">
+							<input type="checkbox" id="inlineCheckbox3" value="option3">&emsp; 新车
+						</label>
+						<label class="checkbox-inline">
+							<input type="checkbox" id="inlineCheckbox3" value="option3">&emsp; 其他
+						</label>
+					</td>
+					<td class="add-bgcolor">是否发生二次事故</td>
+					<td colspan="2">
+						<select><option>请选择</option><option></option></select>
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">二次事故部位描述</td>
+					<td colspan="10"><input type="text"></td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">事故分类</td>
+					<td colspan="10">本车在事故中占<input type="text" style="width:5%">%
+						<label class="radio-inline">
+							<input type="radio">  &emsp;&emsp;已结案
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;未结案
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">车架号是否受损</td>
+					<td colspan="4">
+					<select><option>否</option><option></option></select>
+					</td>
+					<td colspan=" 1" class="add-bgcolor">钥匙数量</td>
+					<td><input type="text"></td>
+					<td class="add-bgcolor">车牌数量</td>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor"><span>*</span>环保标志</td>
+					<td colspan="4">
+						<select><option>请选择</option><option></option></select>
+					</td>
+					<td colspan=" 1" class="add-bgcolor">委托协议编号</td>
+					<td><input type="text"></td>
+					<td class="add-bgcolor">委托时间</td>
+					<td  colspan=" 4">
+						<div class="input-group date form_date " data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+							<input type="text" value="" readonly>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">备注项</td>
+					<td colspan="10"><textarea  style="width:100%"></textarea></td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor"><span>*</span>内部备注</td>
+					<td colspan="10"><textarea style="width:100%"></textarea></td>
+				</tr>
+			
+				<!--其他end-->
+				<tr>
+					<td colspan="10">&nbsp;</td>
+				</tr>
+				<!--车辆手续状态-->
+				<tr>
+					<td class="add-title" colspan="10"><strong>车辆手续状态</strong></td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">登记证</td>
+					<td colspan="4">
+						<label class="radio-inline">
+							<input type="radio">&emsp;&emsp; 原件
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;&emsp;复印件
+						</label>
+						<label class="radio-inline">
+							<input type="radio">&emsp;&emsp;无
+						</label>
+					</td>				
+					<td class="add-bgcolor">行驶证</td>
+					<td colspan=" 4">
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;原件
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;&emsp;复印件
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;无
+						</label>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="add-bgcolor">购置税凭证</td>
+					<td colspan="4">
+						<label class="radio-inline">
+							<input type="radio">&emsp;&emsp; 原件
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;&emsp;复印件
+						</label>
+						<label class="radio-inline">
+							<input type="radio">&emsp;&emsp;无
+						</label>
+					</td>
+					<td class="add-bgcolor">交强险保单</td>
+					<td colspan=" 4">
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;原件
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;&emsp;复印件
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;无
+						</label>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="add-bgcolor">购车发票</td>
+					<td colspan="4">
+						<label class="radio-inline">
+							<input type="radio">&emsp;&emsp; 原件
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;&emsp;复印件
+						</label>
+						<label class="radio-inline">
+							<input type="radio">&emsp;&emsp;无
+						</label>
+					</td>
+					<td class="add-bgcolor">交裁证明复印件</td>
+					<td colspan=" 4">
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;原件
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;&emsp;复印件
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;无
+						</label>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="add-bgcolor">委托方组织机构代码证</td>
+					<td colspan="4">
+						<label class="radio-inline">
+							<input type="radio">&emsp;&emsp; 原件
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;&emsp;复印件
+						</label>
+						<label class="radio-inline">
+							<input type="radio">&emsp;&emsp;无
+						</label>
+					</td>
+					<td class="add-bgcolor">车主身份证</td>
+					<td colspan=" 4">
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;原件
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;&emsp;复印件
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;无
+						</label>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="add-bgcolor">车主暂住证</td>
+					<td colspan="4">
+						<label class="radio-inline">
+							<input type="radio">&emsp;&emsp; 原件
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;&emsp;复印件
+						</label>
+						<label class="radio-inline">
+							<input type="radio">&emsp;&emsp;无
+						</label>
+					</td>
+					<td class="add-bgcolor">其他证件</td>
+					<td colspan=" 4">
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;原件
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;&emsp;复印件
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;无
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">手续扫描件</td>
+					<td colspan="4">
+						<input  type="text"/>
+					</td>
+					<td class="add-bgcolor">银行卡照片</td>
+					<td colspan=" 4">
+						<input type="text" />
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">违章情况</td>
+					<td colspan="4">
+						<label class="radio-inline">
+							<input type="radio">  &emsp;有
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;无
+						</label>
+						<input type="text" style="width:5%">分(扣分)<input type="text" style="width:5%">元(罚款)
+					</td>
+					<td class="add-bgcolor">有无抵押</td>
+					<td colspan="4">
+						<label class="radio-inline">
+							<input type="radio">  &emsp;有
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;无
+						</label>
+					</td>
+				</tr>
+				<!--车辆手续状态end-->
+				<tr>
+					<td colspan="10">&nbsp;</td>
+				</tr>
+				<!--车主信息-->
+				<tr>
+					<td class="add-title" colspan="10"><strong>车主信息</strong></td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">车主姓名</td>
+					<td colspan="3">
+						<input type="text">
+					</td>
+					<td colspan=" 1" class="add-bgcolor">车主身份证号</td>
+					<td><input type="text"></td>
+					<td class="add-bgcolor">车主电话</td>
+					<td colspan="4">
+						<input type="text">
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">委托人姓名(车主)</td>
+					<td colspan="3">
+						<input type="text">
+					</td>
+					<td colspan=" 1" class="add-bgcolor">委托人身份证号</td>
+					<td><input type="text"></td>
+					<td class="add-bgcolor">委托人电话</td>
+					<td colspan="4">
+						<input type="text">
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor"><span>*</span>被保险姓名(车主)</td>
+					<td colspan="3">
+						<input type="text">
+					</td>
+					<td colspan=" 1" class="add-bgcolor"><span>*</span>被保险人身份证号</td>
+					<td><input type="text"></td>
+					<td class="add-bgcolor"><span>*</span>被保险人电话</td>
+					<td colspan="4">
+						<input type="text">
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor"><span>*</span>开户行</td>
+					<td colspan="3">
+						<input type="text">
+					</td>
+					<td colspan=" 1" class="add-bgcolor"><span>*</span>开户姓名</td>
+					<td><input type="text"></td>
+					<td class="add-bgcolor"><span>*</span>账号</td>
+					<td colspan="4">
+						<input type="text">
+					</td>
+				</tr>
+				<!--车主信息end-->
+				<tr>
+					<td colspan="10">&nbsp;</td>
+				</tr>
+				<!--车辆图片-->
+				<tr>
+					<td class="add-title" colspan="10">车辆图片(0) <span>外观照片+内饰照片+车架号照片不得超过40张</span></td>
+				</tr>
+				<tr>
+					<td colspan="10">
+					外观照片(0)
+					<button type="button" class="btn btn-primary add-car">上传</button>
+					<button type="button" class="btn btn-primary add-car">删除</button>
+					<button type="button" class="btn btn-primary add-car">内饰照片</button>
+					<button type="button" class="btn btn-primary add-car">车架号照片</button>
+					<button type="button" class="btn btn-primary add-car">照片草稿</button>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="10">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="10">
+						内饰照片(0)
+						<button type="button" class="btn btn-primary add-car">上传</button>
+						<button type="button" class="btn btn-primary add-car">删除</button>
+						<button type="button" class="btn btn-primary add-car">外观照片</button>
+						<button type="button" class="btn btn-primary add-car">车架号照片</button>
+						<button type="button" class="btn btn-primary add-car">照片草稿</button>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="10">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="10">
+						车架号照片(0)
+						<button type="button" class="btn btn-primary add-car">上传</button>
+						<button type="button" class="btn btn-primary add-car">删除</button>
+						<button type="button" class="btn btn-primary add-car">外观照片</button>
+						<button type="button" class="btn btn-primary add-car">内饰照片</button>
+						<button type="button" class="btn btn-primary add-car">照片草稿</button>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="10">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="10">
+						照片草稿(0)
+						<button type="button" class="btn btn-primary add-car">上传</button>
+						<button type="button" class="btn btn-primary add-car">删除</button>
+						<button type="button" class="btn btn-primary add-car">外观照片</button>
+						<button type="button" class="btn btn-primary add-car">内饰照片</button>
+						<button type="button" class="btn btn-primary add-car">车架号照片</button>
+					</td>
+				</tr>
+				<!--车辆图片end-->
+				<tr>
+					<td colspan="10">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="10">&nbsp;</td>
+				</tr>
+			<!--参拍委托设置-->
+				<tr>
+					<td class="add-title" colspan="10"><strong>参拍委托设置</strong></td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">博车网询价编号</td>
+					<td colspan="2">
+						<input type="text">
+					</td>
+					<td class="add-bgcolor">预计拍卖日期</td>
+					<td colspan="2">
+						<div class="input-group date form_date " data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+							<input type="text" value="" readonly>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+						</div>
+					</td>
+					<td class="add-bgcolor">溢价归属</td>
+					<td colspan=" 2">
+						<select><option>请选择</option><option></option></select>
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">实际价值</td>
+					<td colspan="2">
+						<input type="text">
+					</td>
+					<td class="add-bgcolor">预估修理费</td>
+					<td colspan="2">
+						<input type="text">
+					</td>
+					<td class="add-bgcolor">保留价</td>
+					<td colspan=" 2">
+						<input type="text">
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">起拍价</td>
+					<td colspan="2">
+						<input type="text">
+					</td>
+					<td class="add-bgcolor">是否扣除佣金</td>
+					<td colspan="2">
+						<label class="radio-inline">
+							<input type="radio"> &emsp;是
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;否
+						</label>
+					</td>
+					<td class="add-bgcolor">推全保价</td>
+					<td colspan=" 2">
+						<input type="text">
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor"><span>*</span>其他费用</td>
+					<td colspan="4">
+						<input type="text" />
+					</td>
+					<td class="add-bgcolor"><span>*</span>其他费用支付给</td>
+					<td colspan=" 4">
+						<label class="radio-inline">
+							<input type="radio">  &emsp;&emsp;&emsp;&emsp;保险公司
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;车主
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;&emsp;博车网
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">拖车费(元)</td>
+					<td colspan="4">
+						<input type="text" />
+					</td>
+					<td class="add-bgcolor">拖车公里(公里)</td>
+					<td colspan=" 4">
+						<input type="text" />
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">拖车起点</td>
+					<td colspan="4">
+						<select><option>请选择</option><option></option></select>
+						<select><option>请选择</option><option></option></select>
+					</td>
+					<td class="add-bgcolor">拖车终点</td>
+					<td colspan=" 4">
+						<select><option>请选择</option><option></option></select>
+						<select><option>请选择</option><option></option></select>
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">拖车地点类型</td>
+					<td colspan="10"><select><option>请选择</option><option></option></select></td>
+				</tr>
+				<tr>
+				
+					<td class="add-bgcolor">车款支付给</td>
+					<td colspan="4">
+						<label class="radio-inline">
+							<input type="radio">  &emsp;&emsp;&emsp;&emsp;保险公司
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;车主
+						</label>
+						<label class="radio-inline">
+							<input type="radio"> &emsp;&emsp;&emsp;博车网
+						</label>
+					</td>
+					<td class="add-bgcolor"><span>*</span>车款首付比例</td>
+					<td colspan="4">
+						<input type="text" />
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">打包兜底</td>
+					<td colspan="4">					
+						<select><option>无</option><option></option></select>
+					</td>
+					<td class="add-bgcolor">打包结算拖车费</td>
+					<td colspan="4">				
+						<select><option>无</option><option></option></select>
+					</td>
+				</tr>
+				<tr>
+					<td class="add-bgcolor">预估成交价</td>
+					<td colspan="4">
+						<input type="text" />
+					</td>
+					<td class="add-bgcolor">预估成交价备注</td>
+					<td colspan=" 4">
+						<input type="text" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="10">&nbsp;</td>
+				</tr>
+				<!--参拍委托设置end-->
+			</tbody>
+		</table>
+
+	</div>
+	<!--切换菜单效果-->
+	<script>
+		$(document).ready(function () {
+			$("ul#nav li").click(function () {
+				$(this).addClass("active").siblings().removeClass("active");
+			})
+		})
+	</script>
+
+	<!--切换菜单效果end-->
+	<script type="text/javascript">
+
+		$('.form_date').datetimepicker({
+			language: 'zh-CN',
+			weekStart: 1,
+			todayBtn: 1,
+			autoclose: 1,
+			todayHighlight: 1,
+			startView: 2,
+			minView: 2,
+			forceParse: 0,
+			format: 'yyyy-mm-dd',
+			pickerPosition:'bottom-left'
+		});
+	</script>
+</body>
+
+</html>
