@@ -17,5 +17,6 @@ nav{
     margin-top:-20px;
 }
 .xypos{
-    margin-top:10%;
+    top:10%;
+    position:absolute;
 }
