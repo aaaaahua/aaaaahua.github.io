@@ -1,3 +1,4 @@
+
 body{
     font-family:'Microsoft YaHei';  
 }
@@ -17,6 +18,12 @@ nav{
     margin-top:-20px;
 }
 .xypos{
-    top:10%;
+    top:200px;
     position:absolute;
+}
+.sec1font{
+    color:white;
+    display:none;
+    margin-top:350px;
+    text-align:center;
 }
