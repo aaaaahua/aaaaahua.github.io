@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <section class="bg1">
+    <section class="bg1" >
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -59,12 +59,83 @@
         <h3 id="guide" class="sec1font   ">Hi, 这是我的新手站，记录自己的生活与设计。欢迎大家交流分享 :)</h3>
     </section>
     <section>
-
+        <div class="col-md-7 col-lg-6 col-sm-12 col-xs-12  about_part">
+            <h2 >关于我</h2>
+            <p class="about_font">大四咸鱼一枚，大学四年时间如梭，在学霸舍友的引导下由大一的不学无术到现在想成为一名光荣的码农or码畜，我喜欢前端，喜欢那种创作页面的感觉，一种创造的喜悦和得到认可的感觉让我一直走在这条路上，期间和同学做过一些小项目小网站，参加过学校的网页设计大赛以及省级创新项目，均获得较好的名次（大神带飞系列），大四上接了一个制作车辆拍卖网站的外包项目，期间学习到很多在学校得不到的经验，也知道了自己的不足。
+            <br /><br />关于爱好，变胖的时候很喜欢跑步，瘦下来的时候很喜欢吃美食。猫奴一只，沉溺于网上吸猫。喜欢折腾很多走进生活的科技产品，手机，扫地机器人，平衡车，无人机（没钱买），所以梦想是希望能很有钱，能买很多自己喜欢的东西，也一直为之努力，没有梦想，跟咸鱼有什么区别呢。
+            </p>
+        </div>
+        <div class="col-md-5 col-lg-6 col-sm-12 col-xs-12 "id="ability" style="height:400px;" >
+        </div>
     </section>
+    <script src="js/echarts.common.min.js"></script>
     <script>
         $(document).ready(function () {
-            $("#guide").delay(2000).fadeIn(3000);
+            $("#guide").delay(2500).fadeIn(3000);
         })
+    </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('ability'));
+   
+        option = {
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(
+                        0, 0, 0, 1,
+                        [
+                            { offset: 0, color: '#83bff6' ,},
+                            { offset: 0.5, color: '#188df0' },
+                            { offset: 1, color: '#188df0' }
+                        ]
+                    )
+                },
+                emphasis: {
+                    color: new echarts.graphic.LinearGradient(
+                        0, 0, 0, 1,
+                        [
+                            { offset: 0, color: '#2378f7' },
+                            { offset: 0.7, color: '#2378f7' },
+                            { offset: 1, color: '#83bff6' }
+                        ]
+                    )
+                }
+            },
+
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+        
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'value',
+                boundaryGap: [0, 0.01]
+            },
+            yAxis: {
+                type: 'category',
+                data: ['J2EE', 'JavaScripts', 'Adobe PhotoShop', 'Jquery', 'Bootstrap+MUI', 'HTML+CSS']
+            },
+            series: [
+                {
+                    name: '2011年',
+                    type: 'bar',
+                    data: [60, 65, 70, 80, 88, 90]
+                },
+
+            ]
+          
+        };
+        // 使用刚指定的配置项和数据显示图表。
+
+        myChart.setOption(option);
     </script>
 </body>
 
