@@ -78,59 +78,61 @@
     </script>
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-
-        var myChart = echarts.init(document.getElementById('ability'));
-
-        option = {
-            title: {
-                text: 'SKILL'
-            },
-            itemStyle: {
-                normal: {
-                    color: new echarts.graphic.LinearGradient(
-                        0, 0, 0, 1,
-                        [
-                            { offset: 1, color: 'rgba(83,52,109,0.8)' },
-                        ]
-                    )
+        function delay() {
+            var myChart = echarts.init(document.getElementById('ability'));
+            myChart.setOption({
+                title: {
+                    text: 'SKILL'
                 },
-
-            },
-
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'shadow'
-                }
-            },
-
-            grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
-                containLabel: true
-            },
-            xAxis: {
-                type: 'value',
-                boundaryGap: [0, 0.01]
-            },
-            yAxis: {
-                type: 'category',
-                data: ['J2EE', 'JavaScripts', 'Adobe PhotoShop', 'Jquery', 'Bootstrap+MUI', 'HTML+CSS']
-            },
-            series: [
-                {
-                    name: '2017年',
-                    type: 'bar',
-                    data: [60, 65, 70, 80, 88, 90]
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(
+                            0, 0, 0, 1,
+                            [
+                                { offset: 1, color: 'rgba(83,52,109,0.8)' },
+                            ]
+                        )
+                    },
                 },
-
-            ]
-
-        };
-        // 使用刚指定的配置项和数据显示图表。
-
-        myChart.setOption(option);
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value',
+                    boundaryGap: [0, 0.01]
+                },
+                yAxis: {
+                    type: 'category',
+                    data: ['J2EE', 'JavaScripts', 'Adobe PhotoShop', 'Jquery', 'Bootstrap+MUI', 'HTML+CSS']
+                },
+                series: [
+                    {
+                        name: '2017年',
+                        type: 'bar',
+                        data: [60, 65, 70, 80, 88, 90]
+                    },
+                ]
+            });
+        }
+    </script>
+    <script>
+        var initTop = 0;
+        $(window).scroll(function () {
+            var scrollTop = $(document).scrollTop();
+            if (scrollTop > initTop) {
+                delay();
+            }
+            initTop = scrollTop;
+        });
     </script>
 </body>
 
