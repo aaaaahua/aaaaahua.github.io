@@ -1,0 +1,41 @@
+#my-gallery-container {
+	background-color: #ededed;
+}
+.item p {
+	text-align: center;
+	color: #4d4d4d;
+}
+.item {
+	border: #c6c6c6 1px solid;
+	width: 100%;
+	background-color: white;
+	min-height: 100px;
+	margin: 10px 0px;	
+	border-radius: 4px;,
+	
+}
+.item img{
+    width:100%;
+}
+.item:hover {
+	opacity: 0.5;
+}
+
+.item.h150{
+	width: 100%;
+	min-height: 150px;
+}
+
+.item.h200{
+	width: 100%;
+	min-height: 200px;
+
+}
+
+.item.h250{
+	width: 100%;
+	min-height: 200px;
+}
+.padding{
+	padding: 10px 5px;
+}
