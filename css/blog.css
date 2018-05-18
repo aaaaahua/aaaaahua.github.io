@@ -23,8 +23,8 @@
         display: none;
     }
     .about_part {
-    height: 0px;
-}
+        height: 0px;
+    }
 }
 
 .part2 a:not(:hover):not(:target) {
