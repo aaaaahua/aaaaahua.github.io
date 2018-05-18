@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/mui.picker.min.css" />
+		<link rel="stylesheet" href="css/mui.poppicker.css" />
+		<link rel="stylesheet" href="css/bcw.css" />
+		<style>
+		label,input,span{
+			font-size: small;
+		}
+	      
+		</style>
+		</head>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav headcol">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left backcol"></a>
+			 <div class="finish">完成</div>
+			<h1 class="mui-title haedfont">拆解车参拍资质认证</h1>
+		</header>
+		<div class="mui-content">
+
+			<div class="mui-collapse-content">
+				<form class="mui-input-group">
+					<div class="mui-input-row">
+						<label class="table_tle">基本信息</label>
+					</div>
+					<div class="mui-input-row">
+						<label>真实姓名</label>
+						<input type="tel" placeholder="请输入">
+					</div>
+					<div class="mui-input-row">
+						<label>手机号</label>
+						<input type="text" placeholder="请输入">
+					</div>
+					<div class="mui-input-row">
+						<label>拍卖ID</label>
+						<input type="text" placeholder="请输入">
+					</div>
+					<div class="mui-input-row">
+						<label>身份证号码</label>
+						<input type="text" placeholder="请输入">
+					</div>
+					<div class="mui-input-row">
+						<label > 身份证照片(正反)</label>
+						<input type="file" ><span class="file_value">请上传</span>
+						
+					</div>
+					<div class="mui-input-row">
+						<label>证件有效期</label>
+						<input type="date">
+					</div>
+					<div class="mui-input-row">
+						<label>所在地</label>
+						<span id='showCityPicker' style="line-height: 40px;">选择地区</span>
+						<div id='cityResult' class="ui-alert adress" ></div>
+					</div>
+					<div class="mui-input-row">
+						<label>邮箱</label>
+						<input type="email" placeholder="请输入">
+					</div>
+					<div class="mui-input-row ">
+						<label class="table_tle">委托单位信息</label>
+					</div>
+					<div class="mui-input-row">
+						<label>单位名称</label>
+						<input type="text" placeholder="请输入">
+					</div>
+					<div class="mui-input-row">
+						<label>单位地址</label>
+						<input type="text" placeholder="请输入">
+						
+					</div>
+					<div class="mui-input-row">
+						<label>法定代表人</label>
+						<input type="text" placeholder="请输入">
+					</div>
+					<div class="mui-input-row">
+						<label>注册资本</label>
+						<input type="text" placeholder="请输入">
+					</div>
+					<div class="mui-input-row">
+						<label style="width: 35%;">营业截止时间</label>
+						<input type="date" style="width: 65%;">
+					</div>
+					<div class="mui-input-row">
+						<label>经营范围</label>
+						<input type="text" placeholder="请输入">
+					</div>
+					<div class="mui-input-row">
+						<label > 营业执照照片</label>
+						<input type="file" ><span class="file_value">请上传</span>
+						
+					</div>
+					<div class="mui-input-row">
+						<label >拆解场地照片(正门、牌匾、场地)</label>
+						<input type="file" ><span class="file_value">请上传</span>
+					</div>
+					
+					
+					<div class="mui-input-row">
+						<label >拆解设备照片</label>
+						<input type="file" ><span class="file_value">请上传</span>
+					</div>
+					<div class="mui-input-row">
+						<label >机动车报废资质</label>
+						<input type="file" ><span class="file_value">请上传</span>
+					</div>
+					
+					<div class="mui-input-row mui-checkbox">
+					  <label>本人是否是企业法人</label>
+					  <input name="checkbox1" value="Item 1" type="checkbox" checked>
+					</div>
+					<div class="mui-input-row">
+						<label >授权委托书</label>
+						<input type="file" ><span class="file_value">请上传</span>
+					</div>
+					<div class="mui-input-row">
+						<label style="width: 35%;">授权有限期限</label>
+						<input type="date" style="width: 65%;">
+					</div>
+				</form>
+			</div>
+
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.picker.min.js"></script>
+		<script src="js/city.data.js"></script>
+		<script type="text/javascript" src="js/city.data-3.js"></script>
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+		</script>
+		<script>
+			(function($, doc) {
+				$.init();
+				$.ready(function() {
+
+					//-----------------------------------------
+					//级联示例
+					var cityPicker = new $.PopPicker({
+						layer: 2
+					});
+					cityPicker.setData(cityData);
+					var showCityPickerButton = doc.getElementById('showCityPicker');
+					var cityResult = doc.getElementById('cityResult');
+					showCityPickerButton.addEventListener('tap', function(event) {
+						cityPicker.show(function(items) {
+						cityResult.innerText = "" + items[0].text + " " + items[1].text;
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					//-----------------------------------------
+					//					//级联示例
+
+					//---------
+				});
+			})(mui, document);
+		</script>
+	</body>
+
+</html>

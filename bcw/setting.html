@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>我的</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/bcw.css">
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+				font-size: medium;
+			}
+			.mui-views,
+			.mui-view,
+			.mui-pages,
+			.mui-page,
+			.mui-page-content {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				background-color: #efeff4;
+			}
+			.mui-pages {
+				top: 46px;
+				height: auto;
+			}
+			.mui-scroll-wrapper,
+			.mui-scroll {
+				background-color: #efeff4;
+			}
+			.mui-page.mui-transitioning {
+				-webkit-transition: -webkit-transform 300ms ease;
+				transition: transform 300ms ease;
+			}
+			.mui-page-left {
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+			.mui-ios .mui-page-left {
+				-webkit-transform: translate3d(-20%, 0, 0);
+				transform: translate3d(-20%, 0, 0);
+			}
+			.mui-navbar {
+				position: fixed;
+				right: 0;
+				left: 0;
+				z-index: 10;
+				height: 44px;
+				background-color: #f7f7f8;
+			}
+			.mui-navbar .mui-bar {
+				position: absolute;
+				background: transparent;
+				text-align: center;
+			}
+			.mui-android .mui-navbar-inner.mui-navbar-left {
+				opacity: 0;
+			}
+			.mui-ios .mui-navbar-left .mui-left,
+			.mui-ios .mui-navbar-left .mui-center,
+			.mui-ios .mui-navbar-left .mui-right {
+				opacity: 0;
+			}
+			.mui-navbar .mui-btn-nav {
+				-webkit-transition: none;
+				transition: none;
+				-webkit-transition-duration: .0s;
+				transition-duration: .0s;
+			}
+			.mui-navbar .mui-bar .mui-title {
+				display: inline-block;
+				width: auto;
+			}
+			.mui-page-shadow {
+				position: absolute;
+				right: 100%;
+				top: 0;
+				width: 16px;
+				height: 100%;
+				z-index: -1;
+				content: '';
+			}
+			.mui-page-shadow {
+				background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+				background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+			}
+			.mui-navbar-inner.mui-transitioning,
+			.mui-navbar-inner .mui-transitioning {
+				-webkit-transition: opacity 300ms ease, -webkit-transform 300ms ease;
+				transition: opacity 300ms ease, transform 300ms ease;
+			}
+			.mui-page {
+				display: none;
+			}
+			.mui-pages .mui-page {
+				display: block;
+			}
+			.mui-page .mui-table-view:first-child {
+				margin-top: 15px;
+			}
+			.mui-page .mui-table-view:last-child {
+				margin-bottom: 30px;
+			}
+			.mui-table-view {
+				margin-top: 20px;
+			}
+			
+			.mui-table-view span.mui-pull-right {
+				color: #999;
+			}
+			.mui-table-view-divider {
+				background-color: #efeff4;
+				font-size: 14px;
+			}
+			.mui-table-view-divider:before,
+			.mui-table-view-divider:after {
+				height: 0;
+			}
+			.head {
+				height: 40px;
+			}
+			#head {
+				line-height: 40px;
+			}
+			.head-img {
+				width: 40px;
+				height: 40px;
+			}
+			#head-img1 {
+				position: absolute;
+				bottom: 10px;
+				right: 40px;
+				width: 40px;
+				height: 40px;
+			}
+			.update {
+				font-style: normal;
+				color: #999999;
+				margin-right: -25px;
+				font-size: 15px
+			}
+			.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+			.mui-ios .mui-navbar .mui-bar .mui-title {
+				position: static;
+			}
+			/*问题反馈在setting页面单独的css*/
+			#feedback .mui-popover{
+				position: fixed;
+			}
+			#feedback .mui-table-view:last-child {
+			    margin-bottom: 0px;
+			}
+			#feedback .mui-table-view:first-child {
+			    margin-top: 0px;
+			}
+			.mui-table-view .mui-media-object {
+			    line-height: 42px;
+			    max-width: 70px!important;
+			    height: 42px;
+			}
+			/*问题反馈在setting页面单独的css==end*/
+			
+		</style>
+		<link rel="stylesheet" type="text/css" href="css/feedback.css" />
+	</head>
+
+	<body class="mui-fullscreen">
+		<!--页面主结构开始-->
+		<div id="app" class="mui-views">
+			<div class="mui-view">
+				<div class="mui-navbar">
+				</div>
+				<div class="mui-pages">
+				</div>
+			</div>
+		</div>
+		<!--页面主结构结束-->
+		<!--单页面开始-->
+		<div id="setting" class="mui-page">
+			<!--页面标题栏开始-->
+			<div class="mui-navbar-inner mui-bar mui-bar-nav headcol"style="background-color:#ED1C24">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left ">
+					<span class="mui-icon mui-icon-left-nav backcol"></span>
+				</button>
+				<h1 class="mui-center mui-title haedfont">设置</h1>
+			</div>
+			<!--页面标题栏结束-->
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell mui-media">
+								<a class="mui-navigate-right" href="#account">
+									<img class="mui-media-object mui-pull-left head-img" id="head-img" src="">
+									<div class="mui-media-body">
+										Hello MUI
+										<p class='mui-ellipsis'>账号:hellomui</p>
+									</div>
+								</a>
+							</li>
+						</ul>
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell">
+								<a href="#account" class="mui-navigate-right">关注车辆</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#account" class="mui-navigate-right">竞拍成功</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#account" class="mui-navigate-right">竞拍失利</a>
+							</li>
+						</ul>
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell" id="table-choose">
+								<a href="table_choose.html" class="mui-navigate-right">参拍资质认证</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#privacy" class="mui-navigate-right">参拍保证金</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#general" class="mui-navigate-right">资金助手</a>
+							</li>
+							<li class="mui-table-view-cell" id="wallet">
+								<a  href="wallet.html"class="mui-navigate-right">钱包</a>
+							</li>
+
+
+					
+						</ul>
+						<ul class="mui-table-view mui-table-view-chevron">
+									<li class="mui-table-view-cell">
+								<a href="#general" class="mui-navigate-right">会员注册协议</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#aboutus" class="mui-navigate-right">关于我们</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" id="telephone">联系我们</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#feedback" class="mui-navigate-right">问题反馈</a>
+							</li>
+							
+						</ul>
+					
+					</div>
+				</div>
+			</div>
+			<!--页面主内容区结束-->
+		</div>
+		<!--单页面结束-->
+		<div id="account" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav "style="background-color:#ED1C24">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left ">
+					<span class="mui-icon mui-icon-left-nav backcol"></span>
+				</button>
+				<h1 class="mui-center mui-title headfont">账号与安全</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a id="head" class="mui-navigate-right">头像
+								<span class="mui-pull-right head" > 
+									<img class="head-img mui-action-preview" id="head-img1" src=""/ >
+								</span>
+							</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a>姓名<span class="mui-pull-right">Hbuilder</span></a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a>HBuilder账号<span class="mui-pull-right">hbuilder@dcloud.io</span></a>
+							</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a>QQ号<span class="mui-pull-right">88888888</span></a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a>手机号<span class="mui-pull-right">18601234567</span></a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a>邮箱地址<span class="mui-pull-right">hbuilder@dcloud.io</span></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div id="general" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav" style="background-color:#ED1C24 ;">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav backcol"></span>
+				</button>
+				<h1 class="mui-center mui-title haedfont" >会员注册协议</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">	
+						    <h4>《博车网会员注册协议》</h4>
+							<p>《博车网会员注册协议》（以下简称“本协议”）是博车网（网址为：www.bochewang.com.cn，以下简称“博车网”）的注册用户（以下简称“用户”）与北京恒泰博车拍卖有限公司（以下简称“博车公司”）之间就在博车网上进行的网站服务、拍卖活动等相关事宜所订立的契约，请用户仔细阅读本协议。
+				当用户点击“我已阅读并同意《博车网会员注册协议》”按钮后，本协议即生效并构成对双方有约束力的法律文件。 <br>
+				
+				一、协议条款的确认和接纳 <br>
+				1. 本协议内容包括本协议正文及所有博车公司在博车网已经发布的或将来可能发布的各类公告、规则、声明等。所有公告、规则、声明等为本协议不可分割的一部分，与本协议正文具有同等法律效力。 <br>
+				2. 用户应当在使用博车公司提供的服务之前认真阅读本协议及博车网已经发布的各类公告、规则、声明等，对于本协议加粗字体显示的内容，用户应重点阅读。若用户对本协议有任何疑问，应向博车公司咨询。 <br>
+				3. 根据国家法律法规变化及网站运营需要，博车公司有权对本协议条款不时地进行修改、删除及增加，修改后的协议一旦张贴于博车网上即生效，并代替原协议。 <br>
+				4. 用户有义务不时关注并阅读更新后的协议及博车网的公告、规则、声明等。若用户不同意更新后的协议、公告、规则、声明等的，可以且应立即停止接受博车公司及博车网提供的服务；若用户继续使用博车公司及博车网提供的服务，即视为同意更新后的协议、公告、规则、声明等。 <br>
+				 
+				二. 用户信息 <br>
+				1.用户应当是根据中华人民共和国法律规定具有完全民事行为能力的自然人、法人或者其他组织。用户参与竞拍并成为竞买人和／或买受人的，应当符合国家及地方对竞买人和／或买受人的资格要求。 <br>
+				2. 用户应自行诚信的向博车公司和博车网提供合法、真实、准确、详尽、有效的注册资料。用户注册资料如有变动的，应及时提交其变更后的注册资料。如果用户提供的注册资料不合法、不真实、不准确、不详尽、无效的，用户须承担因此引起的相应责任及后果。 <br>
+				3. 用户在博车网进行浏览、竞拍等活动时，涉及用户真实姓名／名称、通信地址、联系电话、电子邮箱等隐私信息的，博车公司和博车网将予以严格保密，除非得到用户的授权或法律另有规定，博车公司不会向外界披露用户隐私信息。 <br>
+				4．尽管博车公司和博车网尽到全部的合理努力来保障用户信息的隐私性，博车公司和博车网对任何安全漏洞、因传送错误而披露任何所获信息、或对任何第三方在获得用户的信息时所采取的任何行动不承担任何责任。 <br>
+				5. 用户注册成功后，将产生注册账号（以下简称“注册帐号”）和拍卖ID（以下简称“拍卖ID”）。用户应谨慎合理地保存、使用其注册账号、拍卖ID和其密码。用户同意在每次操作结束时以正确步骤安全退出系统，以减小未授权人士使用注册账号和拍卖ID的可能性。用户若发现任何非法使用注册账号和/或拍卖ID、或存在安全漏洞的情况，请立即通知博车公司并向公安机关报案。 <br>
+				6. 所有注册账号和拍卖ID只限于用户本人使用，所有由用户提交和接受的出价其付款义务始终属于该用户。用户不得将其注册账号和拍卖ID出借给其他第三方使用，否则用户与实际使用方连带承担所有责任及后果（包含而不限于竞价，以及任何在账户中累加的收费）。 <br>
+				7. 博车公司有权通过邮件、短信、微信、电话等形式，向用户发送拍卖会信息、网站通知等信息。 <br>
+				8. 用户同意：博车公司有权单方无条件中止、终止本协议（包含而不限于删除、禁用或注销该用户的注册账号、拍卖ID及其密码的权利）。 <br>
+				9. 用户同意：博车公司保留其依照自行决定，在通知／未通知用户的情况下，随时、临时或永久地更改系统或与系统相关的一般商业做法的权利。 <br>
+			
+				三. 拍卖服务 <br>
+				1. 拍卖标的图录 <br> 
+				在博车公司举办的拍卖活动中，为便于竞买人参加拍卖活动，博车公司均将制作拍卖标的图录，对拍卖标的之状况以文字及／或以图片的方式进行简要陈述。拍卖标的图录中的文字、图片以及其他形式的描述仅供竞买人参考，并可于拍卖前修订，不代表博车公司对拍卖标的的真实性、合法性、价值、有无缺陷等所作的担保。博车公司、博车网及其工作人员对任何拍卖标的用任何方式所作的介绍及评价，均为参考性意见，不构成对拍卖标的的任何担保。 <br> 
+				2. 竞买人之审看责任 <br> 
+				1) 博车公司特别声明，不能保证拍卖标的的品质，对拍卖标的不承担瑕疵担保责任。竞买人有责任自行了解有关拍卖标的的实际状况并对自己竞买拍卖标的的行为承担法律责任。竞买人一经办理竞买手续参加竞价，即视为已了解有关拍卖活动的全部内容，认可拍卖标的现状，并愿意承担相应责任。 <br> 
+				2) 博车公司作为接受委托并举行拍卖活动的拍卖公司，于拍卖前将对拍卖标的进行现场展示，并按拍卖标的的展示现状进行拍卖。博车公司郑重建议，竞买人应在拍卖标的展示期间亲自咨询、审看、查勘拟竞买拍卖标的之原物，自行判断该拍卖标的的品质，并自行查验车架号、发动机号、部件的完整性、是否有车辆改装、是否存在重大事故修复情况等，还应充分了解过户期限／注销期限、及相关法律法规及政策等事项，而不应依赖拍卖标的图录、状态说明以及其他形式的影像制品和宣传品之表述做出决定。如竞买人未能仔细查勘拍卖标的（如对于拍卖标的为机动车辆的，若因车辆门无法打开等情况给竞买人判断车况造成困难的）给竞买人造成损失的，拍卖成交后竞买人不得以拍卖标的不符合其预期为由提出任何异议，该损失由竞买人自行承担，故提请竞买人谨慎参与竞买。 <br> 
+				3. 竞买号牌 <br> 
+				1） 竞买号牌是竞买人参与竞价的唯一凭证。 <br> 
+				2）网络拍卖：用户在博车网注册成功后，将产生用户拍卖ID，该拍卖ID即是用户作为竞买人参加博车公司网络拍卖的竞买号牌（以下简称“竞买号牌”）。用户应妥善保管好拍卖ID及密码。无论是否接受用户的委托，凡持竞买号牌者在拍卖活动中所实施的竞买行为均视为用户本人所为，用户应当对其行为承担法律责任。 <br> 
+				3）现场拍卖：博车公司可根据不同拍卖条件及拍卖方式等情况，在拍卖日前公布办理竞买号牌的条件和程序，包括但不限于制定竞买人办理竞买号牌的资格条件。博车公司郑重提示，竞买人应妥善保管竞买号牌，不得将竞买号牌出借他人使用。一旦丢失，应立即以博车公司认可的书面方式办理挂失手续。 <br> 
+				4. 竞买及过户保证金 <br> 
+				竞买人参加博车公司拍卖活动，应在竞价开始前交纳竞买及过户保证金（以下简称“竞买及过户保证金”）, 该竞买及过户保证金用于保证拍卖、过户手续的顺利进行。若用户竞拍成功的未付拍卖价款金额已达到博车公司规定的上限的，和/或用户竞拍成功的未过户拍卖标的车辆数量已达到博车公司规定的上限的，用户须通过博车网向博车公司提出提升竞买及过户保证金金额的申请并获得博车公司批准后方可继续参加竞拍（竞买及过户保证金的收取标准、提升标准等详见博车网公示）。 <br> 
+				若竞买人未能成功购得拍卖标的且无未付的拍卖价款和/或无未过户车辆，则博车公司将于竞买人在博车网上提出申请后5个工作日内将竞买及过户保证金全额无息返还至竞买人在博车网登记的银行账户内。 <br> 
+				5. 现场拍卖情况处理 <br> 
+				1）博车公司有权酌情拒绝任何用户参加博车公司举办的拍卖活动或进入拍卖现场，或在拍卖会现场进行拍照、录音、摄像等活动。 <br> 
+				2）当拍卖现场出现异常情况影响拍卖活动正常进行时，博车公司有权根据实际情况做出相应处理，直至中止／终止拍卖活动。如拍卖现场出现任何争议，博车公司有权予以协调解决。 <br> 
+				3）拍卖师有权按照拍卖法要求代表博车公司提高或降低竞价阶梯、拒绝竞买和在出现争议时将拍卖标的重新拍卖。 <br> 
+				4）博车公司为方便竞买人，可能于拍卖中使用影像投射或其他形式的显示板，所示内容仅供参考，无论影像投射或其他形式的显示板所示之数额、拍卖标的编号、拍卖标的图片或其他信息等均有可能出现误差，博车公司对因此误差而导致的任何损失不承担任何责任。 <br> 
+				6. 拍卖成交 <br> 
+				1）最高应价经拍卖师落槌或者以网拍平台公开表示买定的方式确认时（该日简称为“拍卖成交日”），该竞买人竞买成功，即表明该竞买人成为拍卖标的的买受人。 <br> 
+				2）若因用户原因导致拍卖交易无效的，则用户应承担赔偿责任，以弥补博车公司及委托人的全部损失，其中博车公司的损失赔偿标准以该拍卖交易有效时博车公司可得利益为准。 <br> 
+				7. 佣金及费用 <br> 
+				1）竞买人竞买成功后，即成为该拍卖标的的买受人（以下简称“买受人”）买受人应自拍卖成交日起2个工作日内向博车公司一次性付清全部应付款项，包含而不限于：拍卖价款、佣金、综合服务费、施救费（若有）等。 <br> 
+				2）买受人未在规定时间内付清全部应付款项的，博车公司有权单方解除本次拍卖，即博车公司收回拍卖标的／不再交付拍卖标的，买受人已付的竞买及过户保证金暂不予退还，买受人应向博车公司支付第一次拍卖所应付的佣金，且博车公司在征得委托人的同意后可将拍卖标的再行拍卖，再行拍卖的价款低于原拍卖价款的，原买受人应当补足差额；博车公司有权在竞买及过户保证金中直接扣除前述佣金及差额。 <br> 
+				3）对于拍卖标的为车辆的，车辆所有过户费用（含新车改票）、欠缴费用（含交强险及车船使用税）、车辆年审、以及相关税费等均由买受人承担。 <br> 
+				8. 拍卖标的的领取 <br> 
+				1）在买受人付清全部应付款项后方可领取拍卖标的。 <br> 
+				2）买受人须在拍卖成交日起3个工作日内前往博车公司指定的地点领取拍卖标的。 <br> 
+				3）买受人若逾期领取标的，应对其所竞得的拍卖标的承担全部责任，且博车公司有权按照逾期时间和标的情况收取保管费100元／每天／每拍卖标的，即使该拍卖标的仍由博车公司代为保管，博车公司及其工作人员对任何原因所致的该拍卖标的的毁损、灭失，不承担任何责任；若超过10日仍未领取，博车公司有权单方解除本次拍卖，即博车公司收回拍卖标的／不再交付拍卖标的，买受人须向博车公司支付第一次拍卖中所应当支付的佣金及保管费，博车公司在征得委托方的同意后可将拍卖标的再行拍卖，再行拍卖的价款低于原拍卖价款的，原买受人应当补足差额，以上款项博车公司有权直接从买受人已付的拍卖价款／竞买及过户保证金中予以扣除。 <br> 
+				9. 车辆的过户
+				1）买受人须按博车公司的要求分别办理“机动车转移登记”（以下简称“过户手续”）或“机动车注销登记手续”（以下简称“注销手续”）；经博车公司书面同意的，可以变更办理登记手续的种类。 <br> 
+				买受人应在博车公司要求的办理完毕过户手续／注销手续的日期（以下简称“过户期限”／“注销期限”）前完成过户手续／注销手续，否则每逾期一天，按200元／每车的标准向博车公司支付违约金（博车公司有权在用户已交的竞买及过户保证金中直接扣除该违约金，扣除后不足的，用户应当按照博车公司的要求及时补足）；逾期超过15日的，博车公司有权按5000元／每车的标准在其博车网登记的账户余额或竞买及过户保证金中冻结相应款项作为逾期过户保证金。 <br> 
+				2）博车公司应当在其能力范围内为买受人办理过户手续／注销手续提供相应协助。车辆所有手续文件和车辆牌照由博车公司保存。若车辆需要维修，买受人尽快完成维修以使其具备过户条件，并在过户期限前，提前与博车公司协商确定办理过户手续的具体时间（该时间应早于过户期限）；在过户期限前，若买受人未提前与博车公司协商确定办理过户手续的具体时间的，买受人仍应在过户期限前办理完毕过户手续。 <br> 
+				3）车辆的过户手续／注销手续应按照国家和地方规定办理。买受人须自行了解相应地区的车辆管理规定及政策，因买受人不了解前述规定及政策而造成的一切损失（包含其他方因此遭受的损失）均由买受人承担。 <br> 
+				10. 竞买人的告知义务
+				对于拍卖标的为事故车辆的，买受人对事故车辆的修复、转卖和赠与须严格遵守国家和地方的相关法律法规，且在转让/转售转卖和赠与时应将该车辆来源、事故情况及修复情况如实告知新的受让方，并要求新的受让方将前述情况告诉新的受让方的买方。 <br> 
+				11. 博车公司之决定权
+				博车公司有权对拍卖标的的拍卖顺序、拍卖时间、拍卖方式等进行必要的调整，并可根据委托方的要求决定拍卖标的的拍卖开始和终止拍卖。 <br> 
+				  
+				四、其他 <br>
+				1. 本协议及博车公司在博车网上发布的各类规则、公告、声明等均是为了更好的、更加便利的为用户提供服务。博车公司欢迎用户提出意见和建议，并将虚心接受以提高服务质量。 <br> 
+				2. 争议解决
+				凡因依照本协议而引起或与之有关的任何争议，相关各方均应向博车公司所在地人民法院提起诉讼解决。该等争议的准据法应为中华人民共和国大陆地区法律（不包含港澳台地区法律）。 <br> 
+				3. 解释权
+				博车公司对本协议有最终解释权。
+				 
+				五、特别提示 <br>
+				鉴于机动车辆、车辆配件涉及机动车辆／车辆配件价值评估、机动车辆维修等专业知识，并具有一定商业风险，故提请用户务必在具有一定专业知识及评估能力的情况下谨慎参与拍卖。
+						</p>											
+					</div>
+				</div>
+			</div>
+		</div>
+	<div id="aboutus" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav"style="background-color:#ED1C24 ;">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav backcol"></span>
+				</button>
+				<h1 class="mui-center mui-title haedfont" >关于我们</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">	
+						    <h4  align="center">博车简介</h4>
+					公司简介<br>
+					<P>博车网成立于2014年6月，是致力于二手车拍卖、事故车拍卖、不可修复事故车拍卖与配件服务的专业网络平台，隶属于北京恒泰博车拍卖有限公司。<br>
+					博车网创立了车辆现场保全+网络拍卖的全新商业模式，服务于众多保险公司、汽车租赁公司、汽车金融企业、汽车电商平台、汽车厂商、政府、国企等有大批车辆处置需求的客户，为委托方提供完善的车辆处置方案，为二手车商、汽车维修企业、汽车配件商、汽车拆解企业等专业买家提供稳定丰富的各类车源和新型的盈利模式。
+					</P>
+					<img src="images/aboutus.jpg" style="width: 100%;">
+					经营模式
+					<p>
+					现场保全－车场设置监控保证车辆充分保全不受损伤，真实全面展示车况、手续提前核查和保管，会员可实地查勘车辆，保证竞价合理充分。博车网会员专员现场陪同查勘，与会员充分沟通交流，做好拍前、拍后、过户等服务。<br>
+					网络拍卖－网站和手机App均可参与竞拍，注册简单、界面友好、功能详尽、轻松上手，会员可随时随地竞拍，消除了地域和距离的不便，公开公正，高效便捷。	
+					</p>
+					事故车拍卖业务
+					<p>
+					博车网通过搭建完善的机动车拍卖业务体系，利用拍卖的公开、公平、公正的特点和互联网快速广泛的优势，将推定全损与事故车拍卖相结合，使事故车残值价值最大化，实现了多方共赢：<br>
+					于维修企业，可获得更多的维修资源和利润增长点；<br>
+					于保险公司，可减少理赔支出、提高理赔效率；<br>
+					于车主，可缩短理赔等待时间，增加了车辆处置方式，提高车主满意度。<br>
+					车源特点－车源稳定（40余家委托方提供持续事故车源）、年份新（多为5年内车辆）、品牌多&车型全、手续齐全、覆盖全国各地<br>
+					拍卖会－每周均有多场拍卖会，月处置量过千台.<br>
+					</p>
+					不可修复事故车拍卖
+					<p>
+					为了方便会员快速找到所需要的汽车配件，缩短维修时间，同时推进绿色维修、科技环保、节约资源的理念，博车网推出多品牌、多车型的配件供应服务，配件分为自拆与品质优选两类。<br>
+					自拆专区－配件是博车网以合规方式从不可修复事故车上拆解下来的完好或有轻微伤的配件，均可直接装车。该类配件覆盖品牌范围广、类型齐全。<br>
+					品质优选区－配件均有轻微受损，经简单修复后可正常装车使用。该类配件主要为高端品牌车型的外观件。<br>
+					配件特点－品质可靠、价格实惠、购买方便.<br>
+					</p>
+					我们的使命－绿色维修、科技环保、为车主创造价值.<br>
+					我们的愿景－建设中国最公正透明的事故车/机动车交易平台.<br>
+                                                      为修理企业提供优质环保的汽车零部件.<br>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="about" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav"style="background-color:#ED1C24 ;">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>设置
+				</button>
+				<h1 class="mui-center mui-title">关于MUI</h1>
+			</div>
+			<!--这一段先不管，删了有问题？-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-plus-visible">
+								<a id="rate" class="mui-navigate-right">评分鼓励</a>
+							</li>
+							<li class="mui-table-view-cell mui-plus-visible">
+								<a id="welcome" class="mui-navigate-right">欢迎页</a>
+							</li>
+							<li class="mui-table-view-cell mui-plus-visible">
+								<a id="share" class="mui-navigate-right">分享推荐</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a id="tel" class="mui-navigate-right">客服电话</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a id="feedback-btn" href="#feedback" class="mui-navigate-right">问题反馈</a>
+							</li>
+							<li id="check_update" class="mui-table-view-cell mui-plus-visible">
+								<a id="update" class="mui-navigate-right">检查更新</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--这一段先不管，删了有问题？-->
+		</div>
+
+		<div id="feedback" class="mui-page feedback">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav"style="background-color:#ED1C24 ;">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav backcol"></span>
+				</button>
+				<button id="submit" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right backcol" style="color: #FFFFFF;">发送</button>
+				<h1 class="mui-center mui-title backcol">问题反馈</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-content-padded">
+					<div class="mui-inline">问题和意见</div>
+					<a class="mui-pull-right mui-inline" href="#popover">
+						快捷输入
+						<span class="mui-icon mui-icon-arrowdown"></span>
+					</a>
+					<!--快捷输入具体内容，开发者可自己替换常用语-->
+					<div id="popover" class="mui-popover">
+						<div class="mui-popover-arrow"></div>
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									<!--仅流应用环境下显示-->
+									<li class="mui-table-view-cell stream">
+										<a href="#">桌面快捷方式创建失败</a>
+									</li>
+									<li class="mui-table-view-cell"><a href="#">界面显示错乱</a></li>
+									<li class="mui-table-view-cell"><a href="#">启动缓慢，卡出翔了</a></li>
+									<li class="mui-table-view-cell"><a href="#">偶发性崩溃</a></li>
+									<li class="mui-table-view-cell"><a href="#">UI无法直视，丑哭了</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mui-input-row">
+					<textarea id='question' class="mui-input-clear question" placeholder="请详细描述你的问题和意见..."></textarea>
+				</div>
+				<p>图片(选填,提供问题截图,总大小10M以下)</p>
+				<div id='image-list' class="row image-list"></div>
+				<p>QQ/邮箱</p>
+				<div class="mui-input-row">
+					<input id='contact' type="text" class="mui-input-clear contact" placeholder="(选填,方便我们联系你 )" />
+				</div>
+				<div class="mui-content-padded">
+					<div class="mui-inline">应用评分</div>
+					<div class="icons mui-inline" style="margin-left: 6px;">
+						<i data-index="1" class="mui-icon mui-icon-star"></i>
+						<i data-index="2" class="mui-icon mui-icon-star"></i>
+						<i data-index="3" class="mui-icon mui-icon-star"></i>
+						<i data-index="4" class="mui-icon mui-icon-star"></i>
+						<i data-index="5" class="mui-icon mui-icon-star"></i>
+					</div>
+				</div><br />
+			</div>
+		</div>
+
+	</body>
+	<script src="js/mui.min.js "></script>
+	<script src="js/mui.view.js "></script>
+	<script src='js/feedback.js'></script>
+	<script>
+		mui.init();
+		//初始化单页view
+		var viewApi = mui('#app').view({
+			defaultPage: '#setting'
+		});
+		//初始化单页的区域滚动
+		mui('.mui-scroll-wrapper').scroll();
+
+		
+		setTimeout(function () {
+			defaultImg();
+			setTimeout(function() {
+				initImgPreview();
+			}, 300);
+		},500);
+	
+	
+
+		var view = viewApi.view;
+		(function($) {
+			//处理view的后退与webview后退
+			var oldBack = $.back;
+			$.back = function() {
+				if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
+					viewApi.back();
+				} else { //执行webview后退
+					oldBack();
+				}
+			};
+			//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
+			//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
+			view.addEventListener('pageBeforeShow', function(e) {
+				//				console.log(e.detail.page.id + ' beforeShow');
+			});
+			view.addEventListener('pageShow', function(e) {
+				//				console.log(e.detail.page.id + ' show');
+			});
+			view.addEventListener('pageBeforeBack', function(e) {
+				//				console.log(e.detail.page.id + ' beforeBack');
+			});
+			view.addEventListener('pageBack', function(e) {
+				//				console.log(e.detail.page.id + ' back');
+			});
+		})(mui);
+		//更换头像
+		mui(".mui-table-view-cell").on("tap", "#head", function(e) {
+			if(mui.os.plus){
+				var a = [{
+					title: "拍照"
+				}, {
+					title: "从手机相册选择"
+				}];
+				plus.nativeUI.actionSheet({
+					title: "修改头像",
+					cancel: "取消",
+					buttons: a
+				}, function(b) {
+					switch (b.index) {
+						case 0:
+							break;
+						case 1:
+							getImage();
+							break;
+						case 2:
+							galleryImg();
+							break;
+						default:
+							break
+					}
+				})	
+			}
+			
+		});
+
+		function getImage() {
+			var c = plus.camera.getCamera();
+			c.captureImage(function(e) {
+				plus.io.resolveLocalFileSystemURL(e, function(entry) {
+					var s = entry.toLocalURL() + "?version=" + new Date().getTime();
+					console.log(s);
+					document.getElementById("head-img").src = s;
+					document.getElementById("head-img1").src = s;
+					//变更大图预览的src
+					//目前仅有一张图片，暂时如此处理，后续需要通过标准组件实现
+					document.querySelector("#__mui-imageview__group .mui-slider-item img").src = s + "?version=" + new Date().getTime();;;
+				}, function(e) {
+					console.log("读取拍照文件错误：" + e.message);
+				});
+			}, function(s) {
+				console.log("error" + s);
+			}, {
+				filename: "_doc/head.jpg"
+			})
+		}
+
+		function galleryImg() {
+			plus.gallery.pick(function(a) {
+				plus.io.resolveLocalFileSystemURL(a, function(entry) {
+					plus.io.resolveLocalFileSystemURL("_doc/", function(root) {
+						root.getFile("head.jpg", {}, function(file) {
+							//文件已存在
+							file.remove(function() {
+								console.log("file remove success");
+								entry.copyTo(root, 'head.jpg', function(e) {
+										var e = e.fullPath + "?version=" + new Date().getTime();
+										document.getElementById("head-img").src = e;
+										document.getElementById("head-img1").src = e;
+										//变更大图预览的src
+										//目前仅有一张图片，暂时如此处理，后续需要通过标准组件实现
+										document.querySelector("#__mui-imageview__group .mui-slider-item img").src = e + "?version=" + new Date().getTime();;
+									},
+									function(e) {
+										console.log('copy image fail:' + e.message);
+									});
+							}, function() {
+								console.log("delete image fail:" + e.message);
+							});
+						}, function() {
+							//文件不存在
+							entry.copyTo(root, 'head.jpg', function(e) {
+									var path = e.fullPath + "?version=" + new Date().getTime();
+									document.getElementById("head-img").src = path;
+									document.getElementById("head-img1").src = path;
+									//变更大图预览的src
+									//目前仅有一张图片，暂时如此处理，后续需要通过标准组件实现
+									document.querySelector("#__mui-imageview__group .mui-slider-item img").src = path;
+								},
+								function(e) {
+									console.log('copy image fail:' + e.message);
+								});
+						});
+					}, function(e) {
+						console.log("get _www folder fail");
+					})
+				}, function(e) {
+					console.log("读取拍照文件错误：" + e.message);
+				});
+			}, function(a) {}, {
+				filter: "image"
+			})
+		};
+
+		function defaultImg() {
+			if(mui.os.plus){
+				plus.io.resolveLocalFileSystemURL("_doc/head.jpg", function(entry) {
+					var s = entry.fullPath + "?version=" + new Date().getTime();;
+					document.getElementById("head-img").src = s;
+					document.getElementById("head-img1").src = s;
+				}, function(e) {
+					document.getElementById("head-img").src = 'img/logo.png';
+					document.getElementById("head-img1").src = 'img/logo.png';
+				})
+			}else{
+				document.getElementById("head-img").src = 'img/logo.png';
+				document.getElementById("head-img1").src = 'img/logo.png';
+			}
+			
+		}
+		document.getElementById("head-img1").addEventListener('tap', function(e) {
+			e.stopPropagation();
+		});
+		
+
+		function initImgPreview() {
+			var imgs = document.querySelectorAll("img.mui-action-preview");
+			imgs = mui.slice.call(imgs);
+			if (imgs && imgs.length > 0) {
+				var slider = document.createElement("div");
+				slider.setAttribute("id", "__mui-imageview__");
+				slider.classList.add("mui-slider");
+				slider.classList.add("mui-fullscreen");
+				slider.style.display = "none";
+				slider.addEventListener("tap", function() {
+					slider.style.display = "none";
+				});
+				slider.addEventListener("touchmove", function(event) {
+					event.preventDefault();
+				})
+				var slider_group = document.createElement("div");
+				slider_group.setAttribute("id", "__mui-imageview__group");
+				slider_group.classList.add("mui-slider-group");
+				imgs.forEach(function(value, index, array) {
+					//给图片添加点击事件，触发预览显示；
+					value.addEventListener('tap', function() {
+						slider.style.display = "block";
+						_slider.refresh();
+						_slider.gotoItem(index, 0);
+					})
+					var item = document.createElement("div");
+					item.classList.add("mui-slider-item");
+					var a = document.createElement("a");
+					var img = document.createElement("img");
+					img.setAttribute("src", value.src);
+					a.appendChild(img)
+					item.appendChild(a);
+					slider_group.appendChild(item);
+				});
+				slider.appendChild(slider_group);
+				document.body.appendChild(slider);
+				var _slider = mui(slider).slider();
+			}
+		}
+		
+		if(mui.os.stream){
+			document.getElementById("check_update").display = "none";
+		}
+		
+	</script>
+    <script>
+    	   document.getElementById("telephone").addEventListener('tap',function(){
+            var btnArray=['拨打','取消'];
+            var phone="18905074828";
+            mui.confirm('是否拨打'+phone+'?','提示',btnArray,function(e){
+                if(e.index == 0){
+                    plus.device.dial(phone,false);
+                }
+            });
+        });
+    </script>
+
+</html>

@@ -1,0 +1,56 @@
+<html>
+
+	<head>
+    <meta charset="utf-8">
+    <title>推荐车辆</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!--标准mui.css-->
+    <link rel="stylesheet" href="css/mui.min.css">
+    <link rel="stylesheet" href="css/mui.picker.min.css">
+    <link rel="stylesheet" href="css/mui.poppicker.css" />
+    <!--App自定义的css-->
+    <link rel="stylesheet" href="css/bcw.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <header class="mui-bar mui-bar-nav headcol">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left backcol"></a>
+        <h1 class="mui-title haedfont">推荐车辆</h1>
+    </header>
+    <div class="mui-content">
+
+        <ul class="mui-table-view">
+            <li class="mui-table-view-cell mui-media" id='car_detail'>
+                <a href="car_detail.html">
+                    <img class="mui-media-object mui-pull-left" src="images/car.jpg">
+                    <div class="mui-media-body">
+                        <div class="left">2009 大众 速腾1.6</div>
+                        <div class="right">¥25000</div>
+                        <p class='mui-ellipsis left'>No:1 ID:A5D0112072145</p>
+                        <p class='mui-ellipsis left'>拍卖会日期：17-5-18 14:00</p>
+                        <span class="mui-badge mui-badge-red right">火</span>
+
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+</body>
+<script src="js/mui.min.js"></script>
+<script>
+    mui.init({
+        swipeBack: true //启用右滑关闭功能
+    });
+</script>
+
+
+</html>

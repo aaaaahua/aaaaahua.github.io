@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/mui.picker.min.css" />
+		<link rel="stylesheet" href="css/mui.poppicker.css" />
+		<link rel="stylesheet" href="css/bcw.css" />
+		<style>
+		label,input,span{
+			font-size: small;
+		}
+	
+		</style>
+	</head>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav headcol">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left backcol"></a>
+			
+			<h1 class="mui-title headfont" >钱包提现</h1>
+		</header>
+		<div class="mui-content">
+
+			<div class="mui-collapse-content">
+				<form class="mui-input-group">
+					
+					<div class="mui-input-row">
+						<label>提取金额</label>
+						<input type="tel" placeholder="请输入">
+					</div>
+					<div class="mui-input-row">
+						<label>银行卡号</label>
+						<input type="text" placeholder="请输入">
+					</div>
+					<div class="mui-input-row">
+						<label>开户行</label>
+						<div class="styled-select">
+						<select>
+                                <option value="">请选择</option>
+                                    <option value="汇丰银行">汇丰银行</option>
+                                    <option value="华夏银行">华夏银行</option>
+                                    <option value="中信银行">中信银行</option>
+                                    <option value="城市信用合作社">城市信用合作社</option>
+                                    <option value="浙商银行">浙商银行</option>
+                                    <option value="中国开发银行">中国开发银行</option>
+                                    <option value="光大银行">光大银行</option>
+                                    <option value=" 苏州银行斜塘支行"> 苏州银行斜塘支行</option>
+                                    <option value="平安银行">平安银行</option>
+                                    <option value="交通银行">交通银行</option>
+                                    <option value="福建海峡银行股份有限公司">福建海峡银行股份有限公司</option>
+                                    <option value="江苏银行">江苏银行</option>
+                                    <option value="深圳发展银行">深圳发展银行</option>
+                                    <option value="通城农商银行">通城农商银行</option>
+                                    <option value="兴业银行">兴业银行</option>
+                                    <option value="中银香港">中银香港</option>
+                                    <option value="香港上海汇丰银行">香港上海汇丰银行</option>
+                                    <option value="中国进出口银行">中国进出口银行</option>
+                                    <option value="招商银行">招商银行</option>
+                                    <option value="花旗银行">花旗银行</option>
+                                    <option value="中国工商银行">中国工商银行</option>
+                                    <option value="恒丰银行">恒丰银行</option>
+                                    <option value="南京银行">南京银行</option>
+                                    <option value="农村商业银行">农村商业银行</option>
+                                    <option value=" 哈尔滨银行股份有限公司"> 哈尔滨银行股份有限公司</option>
+                                    <option value="上海浦东发展银行">上海浦东发展银行</option>
+                                    <option value="上海银行">上海银行</option>
+                                    <option value="中国光大银行">中国光大银行</option>
+                                    <option value="中国农业银行">中国农业银行</option>
+                                    <option value="中国民生银行">中国民生银行</option>
+                                    <option value="农村信用合作社">农村信用合作社</option>
+                                    <option value="恒生银行">恒生银行</option>
+                                    <option value="江苏银行镇江城南支行">江苏银行镇江城南支行</option>
+                                    <option value="中国银行">中国银行</option>
+                                    <option value="中国人民银行">中国人民银行</option>
+                                    <option value="农村合作银行">农村合作银行</option>
+                                    <option value="龙江银行股份有限公司">龙江银行股份有限公司</option>
+                                    <option value="汉口银行">汉口银行</option>
+                                    <option value="三峡银行">三峡银行</option>
+                                    <option value="渤海银行">渤海银行</option>
+                                    <option value="中国建设银行">中国建设银行</option>
+                                    <option value="广州银行">广州银行</option>
+                                    <option value="南洋商业银行">南洋商业银行</option>
+                                    <option value="村镇银行">村镇银行</option>
+                                    <option value="城市商业银行">城市商业银行</option>
+                                    <option value="东亚银行">东亚银行</option>
+                                    <option value="广东发展银行">广东发展银行</option>
+                                    <option value="福建兴业银行">福建兴业银行</option>
+                                    <option value="中国邮政">中国邮政</option>
+                                    <option value="徽商银行">徽商银行</option>                        
+						</select>
+						</div>						
+					</div>
+					<div class="mui-input-row">
+						<label>所在地</label>
+						<span id='showCityPicker' style="line-height: 40px;">选择地区:</span>
+						<div id='cityResult' class="ui-alert adress" ></div>
+					</div>
+					<div class="mui-input-row">
+						<label > 支行</label>
+						<input type="text" placeholder="请输入支行名称">			
+					</div>
+					
+				</form>
+				<div align="center">						
+					<button type="button" class="mui-btn submit" >提交</button>
+					</div>	
+			</div>
+
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.picker.min.js"></script>
+		<script src="js/city.data.js"></script>
+		<script type="text/javascript" src="js/city.data-3.js"></script>
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+		</script>
+		<script>
+			(function($, doc) {
+				$.init();
+				$.ready(function() {
+
+					//-----------------------------------------
+					//级联示例
+					var cityPicker = new $.PopPicker({
+						layer: 2
+					});
+					cityPicker.setData(cityData);
+					var showCityPickerButton = doc.getElementById('showCityPicker');
+					var cityResult = doc.getElementById('cityResult');
+					showCityPickerButton.addEventListener('tap', function(event) {
+						cityPicker.show(function(items) {
+								cityResult.innerText = "" + items[0].text + " " + items[1].text;
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					//-----------------------------------------
+					//					//级联示例
+
+					//---------
+				});
+			})(mui, document);
+		</script>
+
+	</body>
+
+</html>

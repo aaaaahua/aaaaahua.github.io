@@ -1,6 +1,7 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <base href="<%=basePath%>">
     <meta charset='utf-8'>
@@ -35,25 +36,23 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">首页 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="fitlife.html">作品</a></li>
-
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">作品 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="fitlife.html" target="_blank">PC端毕设前台</a></li>
+                                <li><a href="phone.html">移动端项目</a></li>
+                                <li><a href="#">Something else here</a></li>
+                            </ul>
+                        </li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">关于</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">刘佳辉 <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </li>
                     </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
         </nav>
         <img src="images/xy.png" class="col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 col-md-offset-3 col-md-6 col-lg-6 col-lg-offset-3 xypos">
         <h3 id="guide" class="sec1font   ">Hi, 这是我的新手站，记录自己的生活与设计。欢迎大家交流分享 :)</h3>
@@ -72,9 +71,10 @@
     </section>
     <script src="js/echarts.common.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $("#guide").delay(1000).fadeIn(2000);
         })
+
     </script>
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
@@ -82,16 +82,16 @@
             var myChart = echarts.init(document.getElementById('ability'));
             myChart.setOption({
                 title: {
-                    text: 'SKILL',                 
-                    y:'20'
+                    text: 'SKILL',
+                    y: '20'
                 },
                 itemStyle: {
                     normal: {
                         color: new echarts.graphic.LinearGradient(
-                            0, 0, 0, 1,
-                            [
-                                { offset: 1, color: 'rgba(83,52,109,0.8)' },
-                            ]
+                            0, 0, 0, 1, [{
+                                offset: 1,
+                                color: 'rgba(83,52,109,0.8)'
+                            }, ]
                         )
                     },
                 },
@@ -115,25 +115,25 @@
                     type: 'category',
                     data: ['J2EE', 'JavaScripts', 'Adobe PhotoShop', 'Jquery', 'Bootstrap+MUI', 'HTML+CSS']
                 },
-                series: [
-                    {
-                        name: '2017年',
-                        type: 'bar',
-                        data: [60, 65, 70, 80, 88, 90]
-                    },
-                ]
+                series: [{
+                    name: '2017年',
+                    type: 'bar',
+                    data: [60, 65, 70, 80, 88, 90]
+                }, ]
             });
         }
+
     </script>
     <script>
         var initTop = 0;
-        $(window).scroll(function () {
+        $(window).scroll(function() {
             var scrollTop = $(document).scrollTop();
             if (scrollTop > initTop) {
                 delay();
             }
             initTop = scrollTop;
         });
+
     </script>
 </body>
 

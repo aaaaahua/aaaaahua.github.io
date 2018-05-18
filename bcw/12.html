@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="author" content="http://sc.chinaz.com/jiaoben/" />
+<title>1</title>
+
+<script type="text/javascript" src="js/jquery.js" ></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var times = 60 * 100; // 60秒
+		countTime = setInterval(function() {
+			times = --times < 0 ? 0 : times;
+			var ms = Math.floor(times / 100).toString();
+
+			if(ms.length <= 1) {
+				ms = "0" + ms;
+			}
+			var hm = Math.floor(times % 100).toString();
+			if(hm.length <= 1) {
+				hm = "0" + hm;
+			}
+		
+			// 获取分钟、毫秒数
+			$(".a").html(ms);
+			$(".b").html(hm);
+		}, 10);
+	});
+</script>
+<style>
+	.warp{
+		width: 100%;
+		height: 100px;
+		line-height: 100px;
+		text-align: center;
+		font-size: 40px;
+		font-family: "微软雅黑";
+	}
+	.warp strong{
+		width: 100px;
+		display: inline-block;
+		text-align: center;
+		font-family: georgia;
+		color: #C9302C;
+	}
+</style>
+</head>
+
+<body>
+<div class="warp">
+	<strong class="a">111</strong>秒 <strong class="b"></strong>毫秒
+</div>
+
+</body>
+</html>

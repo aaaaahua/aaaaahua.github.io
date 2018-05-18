@@ -1,0 +1,132 @@
+<html><head>
+	<meta charset="utf-8">
+	<title>钱包</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<!--标准mui.css-->
+	<link rel="stylesheet" href="css/mui.min.css">
+	<!--App自定义的css-->
+	<link rel="stylesheet" href="css/bcw.css">
+	<link rel="stylesheet" href="css/mui-icons-extra.css" />
+	<style>
+
+	</style>
+</head>
+
+<body>
+
+	<header class="mui-bar mui-bar-nav headcol">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left backcol"></a>
+		<h1 class="mui-title haedfont">钱包</h1>
+	    
+	</header>
+	<div class="mui-content">
+	<div class="walletbg">
+		<img src="images/wallet.png" class="wallet_icon"><br><br>
+		余额:¥0
+	</div>	
+	<div id="testLogin">
+	<button type="button" class="mui-btn walletbtn" id="zhifubao">充值</button>
+	<button type="button" class="mui-btn walletbtn" id="wallet_out"><a href="wallet_out.html">提现</a></button>
+	</div>
+
+	<div class="mui-card">
+			<div class="mui-card-header">
+			<span class="mui-icon-extra mui-icon-extra-order"></span>历史记录
+			</div>
+			<div class="mui-card-content">
+				<div class="mui-card-content-inner">
+					<div>
+						<p class="right">2016-06-02</p>
+						充值:¥1000
+					</div>
+					<br>
+					<div>
+						<p class="right">2016-06-02</p>
+						充值:¥1000
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+</body>
+<script src="js/mui.min.js"></script>
+<script src="js/mui.zoom.js">	</script>
+<script src="js/mui.previewimage.js"></script>
+<script src="js/tools.js" ></script>
+<script>
+	mui.init({
+		swipeBack: true //启用右滑关闭功能
+	});
+</script>
+	<script>
+		var wxChannel = null; // 微信支付
+		var aliChannel = null; // 支付宝支付
+		var channel = null; 
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		
+		mui.plusReady(function() {  
+			// 获取支付通道
+    			plus.payment.getChannels(function(channels){
+    				aliChannel=channels[0];
+       			wxChannel=channels[1];
+    			},function(e){
+       			 alert("获取支付通道失败："+e.message);
+    			});
+		})
+	
+	
+		document.getElementById('zhifubao').addEventListener('tap',function() {
+			console.log("zhifubao");
+			pay('alipay'); 
+		})
+	
+		var ALIPAYSERVER='http://demo.dcloud.net.cn/helloh5/payment/alipay.php?total=';
+		var WXPAYSERVER='http://demo.dcloud.net.cn/helloh5/payment/wxpay.php?total=';
+		// 2. 发起支付请求
+		function pay(id){
+    			// 从服务器请求支付订单
+    			var PAYSERVER='';
+    			if(id=='alipay'){
+       			PAYSERVER=ALIPAYSERVER;
+       			channel = aliChannel;
+   	 		}else if(id=='wxpay'){
+        			PAYSERVER=WXPAYSERVER;
+        			channel = wxChannel;
+    			}else{
+        			plus.nativeUI.alert("不支持此支付通道！",null,"捐赠");
+        			return;
+   			 }
+    			var xhr=new XMLHttpRequest();
+    			xhr.onreadystatechange=function(){
+        			switch(xhr.readyState){
+            			case 4:
+            			if(xhr.status==200){
+                			plus.payment.request(channel,xhr.responseText,function(result){
+                    			plus.nativeUI.alert("支付成功！",function(){
+                       	 		back();
+                   	 		});
+                			},function(error){
+                    			plus.nativeUI.alert("支付失败：" + error.code);
+                			});
+            			}else{
+                			alert("获取订单信息失败！");
+            			}
+            			break;
+            		default:
+            		break;
+        		}
+   		 }
+    		xhr.open('GET',PAYSERVER);
+    		xhr.send();
+	}
+		
+	</script>
+
+</html>

@@ -1,0 +1,287 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/bcw.css" />
+		<link rel="stylesheet" href="css/mui-icons-extra.css" />
+		<!--App自定义的css-->
+		<style type="text/css">
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+			p img {
+				max-width: 100%;
+				height: auto;
+			}
+			.warp{
+		width: 100%; 
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+		font-size: small;
+		font-family: "微软雅黑";
+	}
+	.warp strong{
+		width: 20px;
+		display: inline-block;
+		text-align: center;
+		font-family: georgia;
+		color: #C9302C;
+	}
+		</style>
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav headcol">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left backcol"></a>
+			<h1 class="mui-title haedfont">车辆详细</h1>
+		</header>
+		<div class="mui-content">
+				<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed cartop">
+		        <li class="mui-table-view-cell">
+		            <div class="mui-table">
+		                <div class="mui-table-cell mui-col-xs-8">
+		                	
+		                    <h4 class="mui-ellipsis hleft carbottom">骐达牌DFL7161AA</p><br>
+		                    <h5>初登日期：2008</h5>
+		                    <h5>起拍价：¥4000</h5>
+		                  
+		                </div>
+		               
+		                <div class="mui-table-cell mui-col-xs-2 mui-text-right">
+		                    <span class="mui-h5"><button type="button" class="mui-btn mui-btn-outlined top" id='car_list'>详情</button></span>
+		                    
+		                    <span id="like" class="mui-icon-extra mui-icon-extra-heart heart" ></span>
+		                </div>
+		                
+		            </div>
+		        </li>
+		    </ul>
+		
+				<ul class="mui-table-view">
+				
+				
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right" href="#">车辆图片</a>
+						<div class="mui-collapse-content">
+								<div class="mui-content-padded">		
+									<p>
+										<img src="images/shuijiao.jpg" data-preview-src="" data-preview-group="1" />
+									</p>
+									<P>前</P>
+									<p>
+										<img src="images/shuijiao.jpg" data-preview-src="" data-preview-group="1" />
+									</p>
+									<P>后</P>
+									<p>
+										<img src="images/shuijiao.jpg" data-preview-src="" data-preview-group="1" />
+									</p>
+								</div>
+						</div>
+					</li>
+				</ul>
+		
+		<div class="warp">
+	<strong class="a">111</strong>秒 <strong class="b"></strong>毫秒
+</div>
+		
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/mui.min.js"></script>
+	<script src="js/mui.zoom.js"></script>
+	<script src="js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+	<script>
+	document.getElementById('car_list').addEventListener('tap', function() {
+		//打开关于页面
+		var webview = mui.openWindow({
+			url: 'car_list.html',
+
+		});
+	});
+ 	</script>
+ 	<script>
+	document.getElementById('like').addEventListener('tap', function() {		
+		
+		if( $("#like").css("color")=="red"){
+			 $("#like").css("color","#8f8f94");
+		}else{
+			 $("#like").css("color","red");
+		}
+	});
+ 	</script>
+ 	<script type="text/javascript">
+	$(document).ready(function() {
+		var times = 60 * 100; // 60秒
+		countTime = setInterval(function() {
+			times = --times < 0 ? 0 : times;
+			var ms = Math.floor(times / 100).toString();
+
+			if(ms.length <= 1) {
+				ms = "0" + ms;
+			}
+			var hm = Math.floor(times % 100).toString();
+			if(hm.length <= 1) {
+				hm = "0" + hm;
+			}
+		
+			// 获取分钟、毫秒数
+			$(".a").html(ms);
+			$(".b").html(hm);
+		}, 10);
+	});
+</script>
