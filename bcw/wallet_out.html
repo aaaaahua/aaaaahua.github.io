@@ -1,46 +1,58 @@
 <!doctype html>
 <html>
 
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="css/mui.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="css/mui.picker.min.css" />
-		<link rel="stylesheet" href="css/mui.poppicker.css" />
-		<link rel="stylesheet" href="css/bcw.css" />
-		<style>
-		label,input,span{
-			font-size: small;
-		}
-	
-		</style>
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/mui.picker.min.css" />
+    <link rel="stylesheet" href="css/mui.poppicker.css" />
+    <link rel="stylesheet" href="css/bcw.css" />
+    <style>
+        label,
+        input,
+        span {
+            font-size: small;
+        }
 
-	<body>
+    </style>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?1a278f9521310b4db5cee28885904bf8";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
 
-		<header class="mui-bar mui-bar-nav headcol">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left backcol"></a>
-			
-			<h1 class="mui-title headfont" >钱包提现</h1>
-		</header>
-		<div class="mui-content">
+    </script>
+</head>
 
-			<div class="mui-collapse-content">
-				<form class="mui-input-group">
-					
-					<div class="mui-input-row">
-						<label>提取金额</label>
-						<input type="tel" placeholder="请输入">
-					</div>
-					<div class="mui-input-row">
-						<label>银行卡号</label>
-						<input type="text" placeholder="请输入">
-					</div>
-					<div class="mui-input-row">
-						<label>开户行</label>
-						<div class="styled-select">
-						<select>
+<body>
+
+    <header class="mui-bar mui-bar-nav headcol">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left backcol"></a>
+
+        <h1 class="mui-title headfont">钱包提现</h1>
+    </header>
+    <div class="mui-content">
+
+        <div class="mui-collapse-content">
+            <form class="mui-input-group">
+
+                <div class="mui-input-row">
+                    <label>提取金额</label>
+                    <input type="tel" placeholder="请输入">
+                </div>
+                <div class="mui-input-row">
+                    <label>银行卡号</label>
+                    <input type="text" placeholder="请输入">
+                </div>
+                <div class="mui-input-row">
+                    <label>开户行</label>
+                    <div class="styled-select">
+                        <select>
                                 <option value="">请选择</option>
                                     <option value="汇丰银行">汇丰银行</option>
                                     <option value="华夏银行">华夏银行</option>
@@ -93,63 +105,65 @@
                                     <option value="中国邮政">中国邮政</option>
                                     <option value="徽商银行">徽商银行</option>                        
 						</select>
-						</div>						
-					</div>
-					<div class="mui-input-row">
-						<label>所在地</label>
-						<span id='showCityPicker' style="line-height: 40px;">选择地区:</span>
-						<div id='cityResult' class="ui-alert adress" ></div>
-					</div>
-					<div class="mui-input-row">
-						<label > 支行</label>
-						<input type="text" placeholder="请输入支行名称">			
-					</div>
-					
-				</form>
-				<div align="center">						
-					<button type="button" class="mui-btn submit" >提交</button>
-					</div>	
-			</div>
+                    </div>
+                </div>
+                <div class="mui-input-row">
+                    <label>所在地</label>
+                    <span id='showCityPicker' style="line-height: 40px;">选择地区:</span>
+                    <div id='cityResult' class="ui-alert adress"></div>
+                </div>
+                <div class="mui-input-row">
+                    <label> 支行</label>
+                    <input type="text" placeholder="请输入支行名称">
+                </div>
 
-		</div>
+            </form>
+            <div align="center">
+                <button type="button" class="mui-btn submit">提交</button>
+            </div>
+        </div>
 
-		<script src="js/mui.min.js"></script>
-		<script src="js/mui.picker.min.js"></script>
-		<script src="js/city.data.js"></script>
-		<script type="text/javascript" src="js/city.data-3.js"></script>
-		<script>
-			mui.init({
-				swipeBack: true //启用右滑关闭功能
-			});
-		</script>
-		<script>
-			(function($, doc) {
-				$.init();
-				$.ready(function() {
+    </div>
 
-					//-----------------------------------------
-					//级联示例
-					var cityPicker = new $.PopPicker({
-						layer: 2
-					});
-					cityPicker.setData(cityData);
-					var showCityPickerButton = doc.getElementById('showCityPicker');
-					var cityResult = doc.getElementById('cityResult');
-					showCityPickerButton.addEventListener('tap', function(event) {
-						cityPicker.show(function(items) {
-								cityResult.innerText = "" + items[0].text + " " + items[1].text;
-							//返回 false 可以阻止选择框的关闭
-							//return false;
-						});
-					}, false);
-					//-----------------------------------------
-					//					//级联示例
+    <script src="js/mui.min.js"></script>
+    <script src="js/mui.picker.min.js"></script>
+    <script src="js/city.data.js"></script>
+    <script type="text/javascript" src="js/city.data-3.js"></script>
+    <script>
+        mui.init({
+            swipeBack: true //启用右滑关闭功能
+        });
 
-					//---------
-				});
-			})(mui, document);
-		</script>
+    </script>
+    <script>
+        (function($, doc) {
+            $.init();
+            $.ready(function() {
 
-	</body>
+                //-----------------------------------------
+                //级联示例
+                var cityPicker = new $.PopPicker({
+                    layer: 2
+                });
+                cityPicker.setData(cityData);
+                var showCityPickerButton = doc.getElementById('showCityPicker');
+                var cityResult = doc.getElementById('cityResult');
+                showCityPickerButton.addEventListener('tap', function(event) {
+                    cityPicker.show(function(items) {
+                        cityResult.innerText = "" + items[0].text + " " + items[1].text;
+                        //返回 false 可以阻止选择框的关闭
+                        //return false;
+                    });
+                }, false);
+                //-----------------------------------------
+                //					//级联示例
+
+                //---------
+            });
+        })(mui, document);
+
+    </script>
+
+</body>
 
 </html>

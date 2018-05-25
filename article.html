@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <base href="<%=basePath%>">
     <meta charset='utf-8'>
@@ -14,10 +15,20 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <link href="css/blog.css" rel="stylesheet" />
     <title>FitLife</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?1a278f9521310b4db5cee28885904bf8";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+    </script>
 </head>
 
 <body class="bgcol">
-    <section >
+    <section>
         <nav class="navbar navbar-default navbar-fixed-top add_nav" id="change_nav">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -34,64 +45,73 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                         <li ><a href="fitlife.html">首页</a></li>
-                        <li ><a href="class.html">视频课程</a></li>
+                        <li><a href="fitlife.html">首页</a></li>
+                        <li><a href="class.html">视频课程</a></li>
                         <li><a href="article.html">热门文章</a></li>
                         <li><a href="community.html">交流分享</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="personal.html">我</a></li>
                     </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
         </nav>
     </section>
-    <section >
+    <section>
         <div class="col-md-8 col-md-offset-2 bgcol2">
             <div class="col-md-12">
-                    <div class="article_title col-md-12" style="margin-left:-15px;border-bottom:1px solid #e9e9e9;">
-                        <h4>最新推荐</h4>
+                <div class="article_title col-md-12" style="margin-left:-15px;border-bottom:1px solid #e9e9e9;">
+                    <h4>最新推荐</h4>
+                </div>
+                <div class="col-md-8 article_pos">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <img src="images/article2.jpg" alt="..." style="height:280px;width:100%">
+                            </div>
+                            <div class="item">
+                                <img src="images/article3.jpg" alt="..." style="height:280px;width:100%">
+                            </div>
+                            <div class="item">
+                                <img src="images/article1.jpg" alt="..." style="height:280px;width:100%">
+                            </div>
+                        </div>
                     </div>
-                     <div class="col-md-8 article_pos">
-                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
-                             <!-- Indicators -->
-                             <ol class="carousel-indicators">
-                                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                             </ol>
-                             <!-- Wrapper for slides -->
-                             <div class="carousel-inner" role="listbox">
-                                 <div class="item active">
-                                     <img src="images/article2.jpg" alt="..." style="height:280px;width:100%">
-                                 </div>
-                                 <div class="item">
-                                     <img src="images/article3.jpg" alt="..." style="height:280px;width:100%">
-                                 </div>
-                                 <div class="item">
-                                     <img src="images/article1.jpg" alt="..." style="height:280px;width:100%">
-                                 </div>
-                             </div>
-                         </div>
-                     </div> 
-                <ul class="col-md-4 new_article" >                  
-                       <li><a href="article_content.html">健身时到底该怎么才能增肌又减脂？健身时到底该怎么才能增肌又减脂？</a></li>
-                       <li><a>我肚子上的肉和卡路里，有什么关系？健身时到底该怎么才能增肌又减脂？</a></li>
-                       <li><a>宅男在家如何健身？</a></li>
-                       <li><a>关于运动、健身与蛋白粉，都在这儿！健身时到底该怎么才能增肌又减脂？</a></li>      
-                       <li><a>健身时到底该怎么吃才能增肌又减脂？</a></li>
-                       <li><a>越吃越瘦的「负卡路里食物」存在吗？</a></li>
-                       <li><a>宅男在家如何健身？</a></li>
+                </div>
+                <ul class="col-md-4 new_article">
+                    <li><a href="article_content.html">健身时到底该怎么才能增肌又减脂？健身时到底该怎么才能增肌又减脂？</a></li>
+                    <li><a>我肚子上的肉和卡路里，有什么关系？健身时到底该怎么才能增肌又减脂？</a></li>
+                    <li><a>宅男在家如何健身？</a></li>
+                    <li><a>关于运动、健身与蛋白粉，都在这儿！健身时到底该怎么才能增肌又减脂？</a></li>
+                    <li><a>健身时到底该怎么吃才能增肌又减脂？</a></li>
+                    <li><a>越吃越瘦的「负卡路里食物」存在吗？</a></li>
+                    <li><a>宅男在家如何健身？</a></li>
                 </ul>
-            </div>     
+            </div>
             <div class="col-md-12">
                 <div class="article_title col-md-12" style="margin-left:-15px;border-bottom:1px solid #e9e9e9;">
                     <h4>热门分类</h4>
                 </div>
-                <div class="col-md-6  article_pos" >
-                   <p  class="sort_title">饮食·囿于昼夜厨房与爱</p>
+                <div class="col-md-6  article_pos">
+                    <p class="sort_title">饮食·囿于昼夜厨房与爱</p>
                     <ul class="sort_content">
-                        <li><a><img  src="images/ys1.jpg" class="sort_images"/><div class="sort_imgmain"><h4><strong>在你们那，10块钱可以吃到什么?</strong></h4><p>一下子就想到了煎饼果子。均价5块....</p></div></a></li>
+                        <li>
+                            <a><img src="images/ys1.jpg" class="sort_images" />
+                                <div class="sort_imgmain">
+                                    <h4><strong>在你们那，10块钱可以吃到什么?</strong></h4>
+                                    <p>一下子就想到了煎饼果子。均价5块....</p>
+                                </div>
+                            </a>
+                        </li>
                         <li><a>有哪些很漂亮而且做起来比较方便的美食？</a></li>
                         <li><a>瘦子有哪些共同的饮食习惯？</a></li>
                         <li><a>从二十出头就开始规律健身，控制饮食，注重养生真的有利于健康、延年益寿吗？</a></li>
@@ -103,7 +123,14 @@
                 <div class="col-md-6  article_pos">
                     <p class="sort_title">减肥·自律给你自由</p>
                     <ul class="sort_content">
-                        <li><a><img src="images/ys1.jpg" class="sort_images" /><div class="sort_imgmain"><h4><strong>在你们那，10块钱可以吃到什么?</strong></h4><p>一下子就想到了煎饼果子。均价5块....</p></div></a></li>
+                        <li>
+                            <a><img src="images/ys1.jpg" class="sort_images" />
+                                <div class="sort_imgmain">
+                                    <h4><strong>在你们那，10块钱可以吃到什么?</strong></h4>
+                                    <p>一下子就想到了煎饼果子。均价5块....</p>
+                                </div>
+                            </a>
+                        </li>
                         <li><a>有哪些很漂亮而且做起来比较方便的美食？</a></li>
                         <li><a>瘦子有哪些共同的饮食习惯？</a></li>
                         <li><a>从二十出头就开始规律健身，控制饮食，注重养生真的有利于健康、延年益寿吗？</a></li>
@@ -113,12 +140,19 @@
                     </ul>
                 </div>
                 <div class="article_title col-md-12" style="margin-left:-15px;border-bottom:1px solid #e9e9e9;">
-                    
+
                 </div>
                 <div class="col-md-6  article_pos">
                     <p class="sort_title">健身·努力就有收获</p>
                     <ul class="sort_content">
-                        <li><a><img src="images/ys1.jpg" class="sort_images" /><div class="sort_imgmain"><h4><strong>在你们那，10块钱可以吃到什么?</strong></h4><p>一下子就想到了煎饼果子。均价5块....</p></div></a></li>
+                        <li>
+                            <a><img src="images/ys1.jpg" class="sort_images" />
+                                <div class="sort_imgmain">
+                                    <h4><strong>在你们那，10块钱可以吃到什么?</strong></h4>
+                                    <p>一下子就想到了煎饼果子。均价5块....</p>
+                                </div>
+                            </a>
+                        </li>
                         <li><a>有哪些很漂亮而且做起来比较方便的美食？</a></li>
                         <li><a>瘦子有哪些共同的饮食习惯？</a></li>
                         <li><a>从二十出头就开始规律健身，控制饮食，注重养生真的有利于健康、延年益寿吗？</a></li>
@@ -130,7 +164,14 @@
                 <div class="col-md-6  article_pos">
                     <p class="sort_title">减肥·自律即自由</p>
                     <ul class="sort_content">
-                        <li><a><img src="images/ys1.jpg" class="sort_images" /><div class="sort_imgmain"><h4><strong>在你们那，10块钱可以吃到什么?</strong></h4><p>一下子就想到了煎饼果子。均价5块....</p></div></a></li>
+                        <li>
+                            <a><img src="images/ys1.jpg" class="sort_images" />
+                                <div class="sort_imgmain">
+                                    <h4><strong>在你们那，10块钱可以吃到什么?</strong></h4>
+                                    <p>一下子就想到了煎饼果子。均价5块....</p>
+                                </div>
+                            </a>
+                        </li>
                         <li><a>有哪些很漂亮而且做起来比较方便的美食？</a></li>
                         <li><a>瘦子有哪些共同的饮食习惯？</a></li>
                         <li><a>从二十出头就开始规律健身，控制饮食，注重养生真的有利于健康、延年益寿吗？</a></li>
@@ -139,7 +180,7 @@
                         <li><a>怀孕期间饮食应该注意哪些？哪些食物对孕妇补养身体有好处，哪些食物是比较禁忌的？</a></li>
                     </ul>
                 </div>
-            </div> 
+            </div>
         </div>
     </section>
     <section>
@@ -154,4 +195,5 @@
         </div>
     </section>
 </body>
+
 </html>
