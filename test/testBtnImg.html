@@ -91,6 +91,7 @@
 
 	<body>
 		<section id="app">
+			<img src="" style="position: relative;z-index: 10;width: 100vw;" :src="srcs"/>
 			<button v-on:click="buildImg" style="position: absolute;">test</button>
 			<section class="overlay" v-show="isShow" id="test">
 				<div class="overlay_box">
@@ -129,8 +130,11 @@
 				testImg() {
 
 					html2canvas(document.querySelector("#test")).then(canvas => {
-						document.body.appendChild(canvas)
+//						document.body.appendChild(canvas)
+						this.srcs = canvas.toDataURL();
+						console.log(this.srcs);
 					});
+
 				}
 			}
 		});
