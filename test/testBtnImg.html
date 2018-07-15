@@ -123,14 +123,24 @@
 			img {
 				-webkit-touch-callout: default;
 			}
+			.saveImage{
+				width: 100%;
+				position: absolute;
+				bottom: 5%;
+				left: 0%;
+				color: #FFFFFF;
+				font-size: .3rem;
+				text-align: center;
+
+			}
 		</style>
 	</head>
 
 	<body>
 		<section id="app" v-cloak>
 			<img src="" style="position: relative;z-index: 10;width: 100vw;" :src="srcs" />
-			<button v-on:click="buildImg" style="position: absolute;">保存图片</button>
-			<section class="overlay" v-if="isShow" id="test">
+			<button v-on:click="buildImg" style="position: absolute;" v-show="isShowBtn">保存图片</button>
+			<section class="overlay" v-if="isSaveImage" id="test">
 				<div class="overlay_box">
 					<div class="box_title">
 						<h3>湖里万达年中大促参与活动年中赢大奖</h3>
@@ -148,8 +158,11 @@
 						</div>
 					</div>
 					<div class="box_footer"><button v-on:click="buildImg">确认</button></div>
+					
 				</div>
+				<p class="saveImage">长按保存图片</p>
 			</section>
+			
 		</section>
 	</body>
 	<script type="text/javascript" src="js/font.js"></script>
@@ -160,8 +173,10 @@
 		new Vue({
 			el: "#app",
 			data: {
-				isShow: false,
+				isSaveImage: false,
 				srcs: '',
+				isShowBtn:true,
+				
 			},
 
 			mounted() {
@@ -170,7 +185,8 @@
 			methods: {
 
 				buildImg() {
-					this.isShow = true;
+					this.isSaveImage = true;
+					this.isShowBtn=false,
 					setTimeout(this.testImg, 50);
 
 				},
