@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>模态框</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			[v-cloak] {
+				display: none!important;
+			}
+			
+			.overlay {
+				height: 100vh;
+				position: absolute;
+				width: 100%;
+				top: 0%;
+				left: 0%;
+				background: rgba(0, 0, 0, 0.9);
+				z-index: -5;
+			}
+			
+			.overlay_box {
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 80vw;
+				height: auto;
+				background: #FFFFFF;
+				border-radius: 8px;
+				padding: 5%;
+			}
+			
+			.box_title {
+				padding-bottom: 15%;
+			}
+			
+			.box_title>h3 {
+				font-size: .26rem;
+				color: #333333;
+				letter-spacing: 0;
+				text-align: center;
+			}
+			
+			.box_content {
+				padding-bottom: 5%;
+				width: 100%;
+			}
+			
+			.box_award {
+				border-bottom: 1px dotted;
+			}
+			
+			.box_award>h6 {
+				font-size: .36rem;
+				color: #FE5200;
+				letter-spacing: 0;
+				padding-bottom: 5%;
+				text-align: center;
+			}
+			
+			.box_awardtTitle {
+				font-size: .42rem!important;
+			}
+			
+			.box_content>p {
+				font-size: .28rem;
+				color: #5B5959;
+				letter-spacing: 0;
+				text-align: justify;
+			}
+			
+			.box_djm {
+				text-align: center;
+			}
+			
+			.box_djm>p {
+				font-size: .3rem;
+				padding-top: 5%;
+				display: inline-block;
+			}
+			
+			.box_djm>button {
+				border: none;
+				background-color: #9B9B9B;
+				color: #FFFFFF;
+				padding: .1rem;
+				font-size: .26rem;
+				border-radius: 5px;
+			}
+			
+			.box_djm>span {
+				display: block;
+				color: #E1E1E1;
+				font-size: .24rem;
+				padding-top: 40%;
+			}
+			
+			.box_footer {
+				width: 100%;
+				text-align: center;
+			}
+			
+			.box_footer>button {
+				background-image: linear-gradient(90deg, #0075FF 0%, #0477FD 13%, #4A90E2 100%);
+				border-radius: 8px;
+				font-size: .36rem;
+				color: #FFFFFF;
+				letter-spacing: 2px;
+				text-align: center;
+				line-height: .36rem;
+				border: none;
+				width: 100%;
+				height: .8rem;
+			}
+			
+			img {
+				-webkit-touch-callout: default;
+			}
+			.saveImage{
+				width: 100%;
+				position: absolute;
+				bottom: 5%;
+				left: 0%;
+				color: #FFFFFF;
+				font-size: .3rem;
+				text-align: center;
+
+			}
+		</style>
+	</head>
+
+	<body>
+		<section id="app" v-cloak>
+			<img src="" style="position: relative;z-index: 10;width: 100vw;" :src="srcs" />
+			<button v-on:click="buildImg" style="position: absolute;" v-show="isShowBtn">保存图片</button>
+			<section class="overlay" v-if="isSaveImage" id="test">
+				<div class="overlay_box">
+					<div class="box_title">
+						<h3>湖里万达年中大促参与活动年中赢大奖</h3>
+					</div>
+
+					<div class="box_content">
+						<div class="box_award">
+							<h6 class="box_awardtTitle">一等奖</h6>
+							<h6>价值500元优惠券</h6>
+						</div>
+						<div class="box_djm">
+							<p>兑奖码：YEDDFHS24A</p>
+							<button>复制</button>
+							<span>请妥善保管好兑奖码，勿随意发给他人</span>
+						</div>
+					</div>
+					<div class="box_footer"><button v-on:click="buildImg">确认</button></div>
+					
+				</div>
+				<!--<p class="saveImage">长按保存图片</p>-->
+			</section>
+			
+		</section>
+	</body>
+	<script type="text/javascript" src="js/font.js"></script>
+	<script type="text/javascript" src="js/vue.min.js"></script>
+	<script type="text/javascript" src="js/html2canvas.min.js"></script>
+
+	<script>
+		new Vue({
+			el: "#app",
+			data: {
+				isSaveImage: false,
+				srcs: '',
+				isShowBtn:true,
+				
+			},
+
+			mounted() {
+
+			},
+			methods: {
+
+				buildImg() {
+					this.isSaveImage = true;
+					this.isShowBtn=false,
+					setTimeout(this.testImg, 50);
+
+				},
+				testImg() {
+
+					html2canvas(document.querySelector("#test")).then(canvas => {
+						//						document.body.appendChild(canvas)
+						this.srcs = canvas.toDataURL();
+
+					});
+
+				}
+			}
+		});
+	</script>
+
+</html>

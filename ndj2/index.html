@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>扭蛋机2</title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+
+	<body>
+		<section class="ndj2-container" id="app">
+			<div class="ndj2-bg">
+				<div class="ndj2-title">
+					<img src="img/eggBeater2-title-20180702.png" />
+				</div>
+				<div class="ndj2-main">
+					<div class="ndj2-desc">
+						<img src="img/eggBeater2-desc-20180702.png" />
+					</div>
+					<div class="ndj2-mainEggHalfTop">
+						<img src="img/eggBeater2-eggBeater2-20180702.png" style="position: relative;z-index: 2;" />
+						<div class="ndj2-mainBallPos" v-for="(ball, idx) in data" :key="idx">
+							<img :src="ball.imgUrl" alt="" :style="ball.style" class="ndj2-mainBall">
+						</div>
+
+					</div>
+					<div class="ndj2-mainEggHalfBottom">
+						<img src="img/eggBeater2-eggBeater1-20180702.png" style="margin-top: -1%;position: relative;z-index: 2;" />
+						<div v-bind:class="{ 'ndj2-outBall': isOut }" v-show="isOut">
+							<img src="img/eggBeater2-outBall-20180702.png" style="z-index: 2;position: relative;" class="ndj2-ballShake" />
+							<img src="img/eggBeater2-light3-20180702.png" v-bind:class="{ 'ndj2-ballLight': isLight }" />
+						</div>
+						<div class="ndj2-splitBall">
+							<img src="img/eggBeater2-outBallHalf1-20180702.png" v-show="isSplit" />
+							<img src="img/eggBeater2-light-20180702.png" class="ndj2-ballLight2" />
+							<img src="img/eggBeater2-outBallHalf2-20180702.png" v-bind:class="{ 'ndj2-splitHalfBall': isSplit }" v-show="isSplit" />
+						</div>
+					</div>
+
+					<div class="ndj2-desc1 ">
+						<img src="img/eggBeater2-btn-20180702.png " />
+						<p>活动详情</p>
+					</div>
+					<div class="ndj2-desc2 ">
+						<img src="img/eggBeater2-btn-20180702.png " />
+						<p>创建活动</p>
+					</div>
+					<div class="ndj2-desc4 ">
+						<p>已有<span>2315</span>人参与，您今天还有<span>3</span>次抽奖机会</p>
+						<div class="ndj2-desc4RunBtn " @click="runBall() ">
+							<img src="img/eggBeater2-runBtn-20180702.png " />
+							<p>开始扭一扭</p>
+						</div>
+					</div>
+
+				</div>
+				<div class="ndj2-footer ">
+					<p>页面技术由&ensp;活动运营助手&ensp;提供</p>
+				</div>
+			</div>
+		</section>
+	</body>
+	<script type="text/javascript " src="js/vue.min.js "></script>
+	<script type="text/javascript " src="js/eggBeater2.js "></script>
+
+</html>
