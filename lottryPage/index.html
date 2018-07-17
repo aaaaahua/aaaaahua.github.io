@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>活动详情</title>
+		<link rel="stylesheet" href="css/lotteryDetail.css" />
+	</head>
+
+	<body>
+		<section id="app" v-cloak>
+			<section class="lottery-nav">
+				<div><img src="img/return.png" alt=""></div>
+				<span>活动详情</span>
+			</section>
+			<section class="lottery-container" v-show="!isSaveImage">
+				<div class="lottery-tabber">
+					<div @click="toggleDetail" :class="{lotteryActiveTabber:isTabDetail}">
+						<img src="img/lotteryTab1.png" v-if="isTabDetail" />
+						<img src="img/lotterTab1-1.png" v-else/>
+						<p>活动详情</p>
+					</div>
+					<div @click="togglePersonal" :class="{lotteryActiveTabber:isTabPersonal}">
+						<img src="img/lotteryTab2-2.png" v-if="!isTabPersonal" />
+						<img src="img/lotteryTab2.png" v-else />
+						<p>我的奖品</p>
+					</div>
+				</div>
+				<div class="lottery-content">
+					<div style="padding: 2% 2%;">
+						<div class="lottery-tab1" v-show="isTabDetail">
+							<div class="lottery-title">
+								<strong>活动奖品</strong>
+							</div>
+							<div class="lottery-main">
+								<p>一等奖：价值100元奖品</p>
+								<p>二等奖：价值100元奖品</p>
+								<p>三等奖：价值100元奖品 </p>
+								<p>四等奖：价值100元奖品</p>
+							</div>
+							<div class="lottery-title">
+								<strong>活动时间</strong>
+							</div>
+							<div class="lottery-main">
+								<p>2018年06月20日 9：00—2018年06月22日 24：00</p>
+							</div>
+							<div class="lottery-title">
+								<strong>活动说明</strong>
+							</div>
+							<div class="lottery-main">
+								<p>活动说明活动说明活动说明活动说明活动说明活动说明活动说明活动说明活动说明活动说明活动说明活动说明活动最终解释权由xxxx公司所有</p>
+							</div>
+							<div class="lottery-title">
+								<strong>技术支持</strong>
+							</div>
+							<div class="lottery-main">
+								<p>页面技术由 活动运营助手 提供
+									<a>举报此活动</a>
+								</p>
+
+							</div>
+						</div>
+						<div class="lottery-tab2" v-show="isTabPersonal">
+							<div class="lottery-awardBox">
+								<ul>
+									<li>
+										<img src="img/lotteryAward.png" />
+										<div>
+											<h5>一等奖</h5>
+											<h6>2018-07-01 19:00</h6>
+											<p>400元优惠券</p>
+											<span>×1</span>
+										</div>
+										<button v-on:click="buildImg" v-show="isShowBtn">兑奖</button>
+									</li>
+									<li>
+										<img src="img/lotteryAward.png" />
+										<div>
+											<h5>一等奖</h5>
+											<h6>2018-07-01 19:00</h6>
+											<p>400元优惠券</p>
+											<span>×1</span>
+										</div>
+										<button>兑奖</button>
+									</li>
+									<li>
+										<img src="img/lotteryAward.png" />
+										<div>
+											<h5>一等奖</h5>
+											<h6>2018-07-01 19:00</h6>
+											<p>400元优惠券</p>
+											<span>×1</span>
+										</div>
+										<button>兑奖</button>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<button>我也要创建活动</button>
+						<div class="lottery-ad">
+							<div>
+								<p>广告</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+			<!--<img src="" class="imageSaved" :src="srcs" v-if="isSaveImage" />-->
+			<section class="overlay" v-if="isSaveImage" id="test">
+				<div class="overlay_box">
+					<div class="box_title">
+						<h3>湖里万达年中大促参与活动年中赢大奖</h3>
+					</div>
+
+					<div class="box_content">
+						<div class="box_award">
+							<h6 class="box_awardtTitle">一等奖</h6>
+							<h6>价值500元优惠券</h6>
+						</div>
+						<div class="box_djm">
+							<p>兑奖码：YEDDFHS24A</p>
+							<button>复制</button>
+							<span>请妥善保管好兑奖码，勿随意发给他人</span>
+						</div>
+					</div>
+					<div class="box_footer"><button v-on:click="buildImg">确认</button></div>
+
+				</div>
+				<!--<p class="saveImage">长按保存图片</p>-->
+			</section>
+		</section>
+	</body>
+	<script type="text/javascript" src="js/font.js"></script>
+	<script type="text/javascript" src="js/vue.min.js"></script>
+	<script type="text/javascript" src="js/html2canvas.min.js"></script>
+	<script>
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				isTabDetail: true,
+				isTabPersonal: false,
+				isSaveImage: false,
+				srcs: '',
+				isShowBtn: true,
+			},
+			created() {
+
+			},
+			mounted() {
+
+				this.$nextTick(function() {
+
+				})
+			},
+			methods: {
+				toggleDetail() {
+					this.isTabDetail = true;
+					this.isTabPersonal = false;
+				},
+				togglePersonal() {
+					this.isTabDetail = false;
+					this.isTabPersonal = true;
+				},
+				buildImg() {
+					this.isSaveImage = true;
+					this.isShowBtn = false,
+						setTimeout(this.testImg, 1);
+
+				},
+				testImg() {
+					html2canvas(document.querySelector("#test")).then(canvas => {
+						let awardNum = document.createElement("img");
+						awardNum.src = canvas.toDataURL();
+						document.body.appendChild(awardNum);
+						awardNum.className = 'imageSaved';
+					});
+				}
+
+			}
+		})
+	</script>
+
+</html>
