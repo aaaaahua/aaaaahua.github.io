@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
-		 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title></title>
+		<style>
+			/*----------用来移除向下箭头----------*/
+			
+			input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+				display: none;
+			}
+			/*----------用来移除叉叉按钮----------*/
+			
+			input[type="datetime-local"]::-webkit-clear-button {
+				display: none;
+			}
+		</style>
 	</head>
+
 	<body>
 		<input type="datetime-local" />
 	</body>
+
 </html>
