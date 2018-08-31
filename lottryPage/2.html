@@ -6,21 +6,29 @@
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title></title>
 		<style>
-			/*----------用来移除向下箭头----------*/
-			
-			input[type="datetime-local"]::-webkit-calendar-picker-indicator {
-				display: none;
-			}
-			/*----------用来移除叉叉按钮----------*/
-			
-			input[type="datetime-local"]::-webkit-clear-button {
-				display: none;
-			}
+.qw{
+	    text-align: center;
+    border: 1px solid #000;
+    background: #fff;
+}
+
+
+::-webkit-inner-spin-button { visibility: hidden; }
+
 		</style>
 	</head>
 
 	<body>
-		<input type="datetime-local" />
+		<section id='app'>
+			<input type="datetime-local"   id='11' class="qw"/>
+		</section>
+
 	</body>
+
+	<script>
+		document.getElementById("11").value="2016-11-02T10:10"; 
+	</script>
+
+
 
 </html>
